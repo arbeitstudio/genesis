@@ -1,0 +1,28 @@
+//
+//    Anticverse Webraider
+//
+//    Maintainer: Ferit Yiğit BALABAN <balaban.ferityigit@anticverse.com>
+@use "../keyframes";
+
+#showcase {
+  background-color:hsla(40,0%,0%,1);
+  background-image:
+          radial-gradient(at 50% 18%, hsla(309,100%,31%,1) 0px, transparent 50%),
+          radial-gradient(at 90% 45%, hsla(286,100%,31%,1) 0px, transparent 50%),
+          radial-gradient(at 90% 21%, hsla(258,100%,31%,1) 0px, transparent 50%),
+          radial-gradient(at 81% 13%, hsla(229,100%,31%,1) 0px, transparent 50%),
+          radial-gradient(at 92% 42%, hsla(213,100%,31%,1) 0px, transparent 50%),
+          radial-gradient(at 24% 75%, hsla(329,100%,31%,1) 0px, transparent 50%),
+          radial-gradient(at 7% 3%, hsla(353,100%,31%,1) 0px, transparent 50%);
+  animation: hue-rotate 10s linear infinite;
+
+  h2 {
+    a {
+      font-weight: 600;
+
+      &:hover {
+        font-style: italic;
+      }
+    }
+  }
+}

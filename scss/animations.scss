@@ -1,0 +1,47 @@
+//
+//    Anticverse Webraider
+//
+//    Maintainer: Ferit Yiğit BALABAN <balaban.ferityigit@anticverse.com>
+@use "variables";
+
+$veryfast: 1s;
+$fast: 1.5s;
+$normal: 2s;
+$slow: 2.5s;
+$veryslow: 3s;
+
+@each $timing, $duration in (veryfast: $veryfast, fast: $fast, normal: $normal, slow: $slow, veryslow: $veryslow) {
+  .timing-#{$timing} {
+    transition-duration: $duration !important;
+  }
+}
+
+.anim-slide-down-appear, .anim-slide-right-appear, .anim-slide-up-appear, .anim-appear {
+  opacity: 0;
+  transition: opacity ease-out, filter ease-out, transform ease-out;
+  transition-duration: $normal;
+}
+
+.anim-slide-down-appear {
+  transform: translateY(-100%);
+}
+
+.anim-slide-right-appear {
+  transform: translateX(-100%);
+}
+
+.anim-slide-up-appear {
+  transform: translateY(+100%);
+}
+
+.slide-down-appear, .slide-right-appear, .slide-up-appear, .appear {
+  opacity: 1;
+}
+
+.slide-down-appear, .slide-up-appear {
+  transform: translateY(0);
+}
+
+.slide-right-appear {
+  transform: translateX(0);
+}

@@ -1,0 +1,43 @@
+//
+//    Anticverse Webraider
+//
+//    Maintainer: Ferit Yiğit BALABAN <balaban.ferityigit@anticverse.com> <fybalaban@fybx.dev>
+
+// Renk ton paletleri:
+// 1. Sayı büyüdükçe ton koyulaşıyor
+// 2. Tüm tonlar $cl- prefixi ile başlamalı
+// 3. them, tematik marka rengini temsil ediyor. Tematik rengin baz tonu 100 olmalı
+
+$cl-them100: #C48BFC;
+$cl-them200: #BA83F0;
+$cl-them300: #A676D6;
+$cl-them400: #8861B0;
+$cl-them500: #573E70;
+
+$cl-them-comp100: #C4FC8B;
+$cl-them-comp200: #B9F083;
+$cl-them-comp300: #A6D676;
+$cl-them-comp400: #88B061;
+$cl-them-comp500: #57703E;
+
+// Fonlar ve yazıda kullanılması amacıyla seçilecek olan
+// karanlık ve aydınlık tonlardan, aydınlıkların en koyusu
+// $cl-light500 (#BF), karanlıkların en açığı $cl-dark100 (#4D)
+// üzerinde AA için 4.6:1 orana sahip, böylece her durumda kullanıma uygun.
+
+// https://color.adobe.com/Dark-color-theme-6e4d3b47-a392-4f82-9ef6-527c18a23fd9/
+$cl-dark100: #4D4D4D;
+$cl-dark200: #3D3D3D;
+$cl-dark300: #2E2E2E;
+$cl-dark400: #1F1F1F;
+$cl-dark500: #000;
+
+// https://color.adobe.com/Light-color-theme-d340028f-9202-4a66-9ee7-44cf7eaf3a89/
+$cl-light100: #F2F2F2;
+$cl-light200: #E6E6E6;
+$cl-light300: #D9D9D9;
+$cl-light400: #CCCCCC;
+$cl-light500: #BFBFBF;
+
+$cl-border-color-lodom:     #0094FF;
+$cl-border-color-webraider: #04B440;

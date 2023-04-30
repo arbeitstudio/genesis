@@ -1,0 +1,160 @@
+@use "sass:math";
+@use "../variables";
+@use "../fonts";
+@use "../colors";
+@use "../keyframes";
+@use "../overflows";
+
+$px-heading: 50px;
+$px-text: 18px;
+
+#sec-cta {
+  display: flex;
+  flex-direction: column;
+
+  article {
+    h1 {
+      margin: $px-heading 0 math.div($px-heading, 4) 0;
+      display: inline-block;
+      font: 400 $px-heading fonts.$font-stack;
+
+      span {
+        font-weight: 600;
+        letter-spacing: -5px;
+        animation: pulsate 250ms ease-in-out infinite alternate;
+        text-shadow: 5px 5px 21px;
+
+        a {
+          color: inherit;
+        }
+      }
+
+      &:hover {
+        font-weight: 600;
+        font-style: italic;
+
+        span {
+          font-weight: 400;
+          font-style: normal;
+        }
+      }
+    }
+
+    p {
+      margin: 0;
+      font: 400 $px-text fonts.$font-stack;
+
+      &:last-of-type {
+        margin: math.div($px-text, 2) 0 0 0;
+      }
+    }
+
+    &:nth-of-type(1) {
+      h1 {
+        margin-top: 0;
+        color: #5CEDC4;
+      }
+    }
+
+    &:nth-of-type(2) {
+      text-align: center;
+
+      h1 {
+        color: #E06393;
+      }
+    }
+
+    &:nth-of-type(3) {
+      text-align: right;
+      h1 {
+        color: #F7BA60;
+      }
+    }
+  }
+}
+
+#sec-addressbook {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to right, #2a0845, #6441A5);
+  background-size: 400% 400%;
+  animation: rotate-gradient 8s ease-out infinite;
+
+  h1 {
+    margin: 0 0 math.div($px-heading, 4) 0;
+    font-size: $px-heading;
+    font-weight: 600;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: math.div($px-heading, 2);
+    font-weight: 400;
+  }
+
+  .tabs {
+    margin: 50px 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    label {
+      order: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: clamp(7px, 1vw, 16px) clamp(14px, 1vw, 32px);
+      margin-right: 0.2rem;
+      cursor: pointer;
+      background-color: colors.$cl-dark400;
+      font-weight: bold;
+      transition: background ease 0.3s;
+    }
+
+    .tab {
+      h1 {
+        font-size: 25px;
+      }
+
+      a {
+        font: 400 18px fonts.$font-stack;
+        color: colors.$cl-dark500;
+
+        &:after {
+          content: "↗"
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &:active {
+          font-style: italic;
+        }
+      }
+
+      order: 9;
+      flex-grow: 1;
+      width: 100%;
+      height: 100%;
+      display: none;
+      padding: 20px;
+      color: colors.$cl-dark500;
+      background: colors.$cl-light100;
+      box-shadow: -10px 10px 0px 0px black;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    input[type="radio"]:checked + label {
+      color: colors.$cl-them500;
+      background: colors.$cl-light100;
+    }
+
+    input[type="radio"]:checked + label + .tab {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,437 @@
+//
+//    Anticverse Webraider
+//
+//    Maintainer: Ferit Yiğit BALABAN <balaban.ferityigit@anticverse.com>
+
+@use "sass:math";
+@use "../colors";
+@use "../fonts";
+@use "../overflows";
+@use "../variables";
+@use "../mixins";
+
+$logo-height: 80px;
+
+.card-gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 100px 0 0 0;
+
+  .card {
+    position: relative;
+    margin: 0 0 2.5em 0;
+    
+    @include overflows.mx_width800 {
+      margin: 0 5em 2.5em 0;
+    }
+
+    width: 300px;
+    height: 300px;
+    color: #2e2d31;
+    background-image: url("../../media/index/mesh.webp");
+    background-size: cover;
+    overflow: hidden;
+    border-radius: 30px;
+
+    .image {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      color: #f8f8f8;
+      width: 100%;
+      height: 100%;
+
+      img {
+        height: $logo-height;
+        transition: margin-top 250ms ease-out;
+        margin: 30% 0 0 0;
+      }
+    }
+
+    .content {
+      // Burayı okuyan arkadaştan özür dilerim, kartın genel çalışma biçimi
+      // fazlasıyla sıkıntılı, dolayısıyla şu anda felaket bir hack yazmaktan
+      // başka bir çare bulamıyorum, Allah yardımcın olsun :)
+      max-height: 140px;
+      min-height: 140px;
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      padding: 20px;
+      background: #f2f2f2;
+      border-top-left-radius: 30px;
+      transform: translateY(110px);
+      transition: transform .25s ease-out;
+      text-align: left;
+
+      .title {
+        font: 600 22px fonts.$font-stack;
+        color: #000000;
+      }
+
+      .description {
+        font: 400 14px fonts.$font-stack;
+        opacity: 0;
+        transition: opacity .5s ease-out;
+        transition-delay: 250ms;
+      }
+    }
+
+    &:hover {
+      .image {
+        img {
+          margin: 15% 0;
+        }
+      }
+
+      .content {
+        transform: translateY(50px);
+
+        .description {
+          opacity: 1;
+        }
+      }
+    }
+
+    $hue-degree: 0;
+    @for $i from 1 through 6 {
+      &:nth-of-type(#{$i}) {
+        .image {
+          backdrop-filter: hue-rotate($hue-degree + deg);
+        }
+      }
+      $hue-degree: $hue-degree + 60;
+    }
+
+    &:nth-of-type(5) .image img {
+      width: 200px;
+      height: unset;
+      margin-top: 40%;
+    }
+
+    &:hover:nth-of-type(5) .image img {
+      margin-top: 32%;
+    }
+  }
+}
+
+.card-person {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+  padding: 20px;
+
+  border-radius: 40px;
+  transition: box-shadow variables.$transition ease-in-out,
+  background-color variables.$transition ease-in-out;
+
+  margin: clamp(30px, 5vh, 60px) 0;
+  width: clamp(235px, 30%, 300px);
+  z-index: 0;
+
+  .c-p-video {
+    border-radius: 20px;
+    object-fit: cover;
+    width: 100%;
+    height: 150px;
+  }
+
+  .c-p-text-area {
+    place-self: start;
+    position: relative;
+    top: -25px;
+
+    h1, h2 {
+      margin: 0 !important;
+      font: 400 20px fonts.$font-stack !important;
+    }
+  }
+
+  .c-p-nav {
+    place-self: start;
+    position: relative;
+    top: -20px;
+    display: inline-flex;
+
+    a {
+      display: block;
+      margin: 0 10px 0 0;
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+  }
+
+  &:before {
+    content: "";
+    border-radius: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity variables.$transition linear;
+    z-index: -1;
+  }
+
+  &:hover {
+    &:before {
+      opacity: 1;
+    }
+  }
+
+  @include overflows.mx_width500 {
+    margin: clamp(25px, 5vh, 50px) clamp(10px, 5vw, 15px);
+    width: clamp(300px, 75%, 450px);
+    flex-direction: row;
+
+    .c-p-video {
+      width: 150px;
+      height: 150px;
+    }
+
+    .c-p-text-area {
+      margin: 10px;
+      position: unset;
+    }
+
+    .c-p-nav {
+      margin: 10px;
+      place-self: flex-end;
+      position: absolute;
+      top: unset;
+      left: 172px;
+    }
+  }
+
+  @include overflows.mx_width1000 {
+    width: clamp(300px, 45%, 450px);
+  }
+
+  @include overflows.mx_width1200 {
+    box-sizing: border-box;
+  }
+} // End of class: .card-person
+
+.card-person-senate {
+  @include mixins.card-person-flavor(variables.$cl-senato, variables.$cl-senate-shadow);
+
+  @include overflows.mx_width500 {
+    width: clamp(450px, 75%, 500px);
+  }
+} // End of class: .card-person-senate
+
+.card-person-leader {
+  @include mixins.card-person-flavor(variables.$cl-leader, variables.$cl-leader-shadow);
+} // End of class: .card-person-leader
+
+.card-person-legion {
+  @include mixins.card-person-flavor(variables.$cl-legion, variables.$cl-legion-shadow);
+
+  @include overflows.mx_width500 {
+    width: clamp(300px, 75%, 400px);
+
+    .c-p-video {
+      width: 120px;
+      height: 120px;
+    }
+
+    .c-p-nav {
+      left: 142px;
+    }
+  }
+} // End of class: .card-person-legion
+
+.card-person-project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+  padding: 20px 10px;
+  width: 300px;
+  background-color: #191919;
+  border-radius: 20px;
+
+  margin-top: 10px;
+
+  &:after {
+    content: "";
+    position: absolute;
+    border-radius: 0 0 20px 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 20px;
+    background-color: #282828;
+  }
+
+  .c-p-p-name {
+    color: #FFF !important;
+    font: 300 14px fonts.$font-stack;
+  }
+} // End of class: .card-person-project
+
+.card-person-project-leader {
+  width: 350px;
+  margin-top: 90px;
+  padding: 50px 25px;
+
+  .c-p-p-l-photo {
+    position: absolute;
+    height: 150px;
+    z-index: 1;
+    top: -85px;
+  }
+
+  .c-p-p-l-name {
+    color: #FFF !important;
+    font: 300 18px fonts.$font-stack;
+  }
+
+  &:nth-of-type(1) {
+    margin-top: 0;
+  }
+
+  @media screen and (min-width: 975px) {
+    margin-top: 0;
+  }
+} // End of class: .card-person-project-leader
+
+.card-work {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 20px;
+  height: 400px;
+
+  transition: margin-top 350ms ease-out;
+
+  .c-w-content {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    padding: 20px;
+
+    .c-w-c-ecol {
+      margin: 0;
+      padding: 6px 12px;
+
+      border-width: 2px;
+      border-style: solid;
+      border-radius: 16px;
+
+      font-size: 12px;
+
+      $border-colors: (
+              "lodom": colors.$cl-border-color-lodom,
+              "webraider": colors.$cl-border-color-webraider,
+      );
+
+      @each $color, $value in $border-colors {
+        &[data-border-color="#{$color}"] {
+          border-color: $value;
+        }
+      }
+    } // End of class: .c-w-ecol
+
+    .c-w-c-title {
+      margin: 10px 0 20px;
+      text-align: end;
+    } // End of class: .c-w-title
+
+    .c-w-c-description {
+      margin: 0;
+      text-align: end;
+    } // End of class: .c-w-description
+  } // End of class: .c-w-content
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
+
+    background-color: rgb(66 66 66 / 66%);
+    border-radius: 0 0 16px 16px;
+    backdrop-filter: blur(33px);
+  }
+
+  .c-w-cover {
+    width: 90%;
+    height: 99%;
+    z-index: -1;
+    object-fit: cover;
+
+    border-radius: 16px 16px 0 0;
+
+    transition: filter 350ms ease-out, transform 350ms ease-out;
+    filter: grayscale(0.8);
+  } // End of class: .c-w-cover
+
+  &:hover {
+    margin-top: 90px;
+
+    .c-w-cover {
+      filter: grayscale(0);
+      transform: translateY(-100px);
+    }
+  } // End of pseudo: hover
+
+  @include overflows.mx_width800 {
+    align-items: center;
+    justify-content: unset;
+
+    margin: 30px 30px 30px 90px;
+    height: 300px;
+
+    transition: unset;
+
+    .c-w-content {
+      bottom: unset;
+
+      width: 70%;
+    } // End of class: .c-w-content
+
+    &:before {
+      clip-path: polygon(30% 0, 100% 0%, 100% 100%, 0 100%);
+      border-radius: 0 16px 16px 0;
+    }
+
+    .c-w-cover {
+      width: unset;
+      height: 90%;
+
+      border-radius: 16px 0 0 16px;
+    } // End of class: .c-w-cover
+
+    &:hover {
+      margin-top: 30px;
+
+      .c-w-cover {
+        filter: grayscale(0);
+        transform: translateX(-100px);
+      }
+    } // End of pseudo: hover
+  }
+} // End of class: .card-work

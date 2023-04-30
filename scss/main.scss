@@ -1,0 +1,182 @@
+//
+//    Anticverse Webraider
+//
+//    Maintainer: Ferit Yiğit BALABAN <balaban.ferityigit@anticverse.com>
+//    main.scss
+
+@use "fonts";
+@use "variables";
+@use "overflows";
+@use "colors";
+
+@use "partials/header";
+@use "partials/footer";
+@use "partials/hamburger";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+//noinspection CssInvalidPropertyValue
+html {
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: fill-available;
+}
+
+//noinspection CssInvalidPropertyValue
+body {
+  min-height: -webkit-fill-available;
+  min-height: -moz-available;
+  min-height: fill-available;
+
+  font-family: fonts.$font-stack;
+  font-weight: 300;
+  background-color: black;
+  color: white;
+}
+
+.state-menu_open {
+  height: 100vh;
+  height: 100svh;
+  overflow-y: hidden;
+}
+
+a, .no-highlight {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  width: max-content;
+
+  &:visited {
+    color: white;
+  }
+
+  &[data-icon="logo-linkedin"] {
+    background-image: url("../media/logos/linkedin.webp");
+  }
+
+  &[data-icon="logo-instagram"] {
+    background-image: url("../media/logos/instagram.svg");
+  }
+
+  &[data-icon="logo-github"] {
+    background-image: url("../media/logos/github.svg");
+  }
+}
+
+ul {
+  padding: 0;
+
+  li {
+    list-style-type: none;
+  }
+}
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+h1 {
+  span {
+    &[data-style="bold"] {
+      font-weight: 600;
+    }
+
+    &[data-style="colored"] {
+      color: colors.$cl-them200;
+    }
+  }
+}
+
+#showcase {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-left: variables.$site-lr-padding300 * 2;
+
+  @include overflows.mx_width800 {
+    padding-left: variables.$site-lr-padding200 * 2;
+  }
+
+  @include overflows.mx_width1200 {
+    padding-left: variables.$site-lr-padding * 2;
+  }
+
+
+  height: variables.$index-showcase-height;
+
+  video, img {
+    width: 100%;
+    height: variables.$index-showcase-height;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: none;
+    z-index: -1;
+  }
+
+  h1 {
+    color: white;
+    margin: 0;
+    font: 300 40px fonts.$font-stack;
+    letter-spacing: -2px;
+  }
+
+  h2 {
+    color: white;
+    margin: 0;
+    font: 300 18px fonts.$font-stack;
+  }
+
+  //noinspection CssOverwrittenProperties
+  &[data-style="fullscreen"] {
+    video, img {
+      height: 100vh;
+      height: 100svh;
+      filter: brightness(0.5) saturate(1.5);
+    }
+
+    height: 100vh;
+    height: 100svh;
+  }
+}
+
+#footer[data-style="fullscreen"] {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  background: transparent;
+  border-top: solid 1px rgba(255, 255, 255, 0.25);
+}
+
+.padded {
+  padding: variables.$site-lr-padding300 * 3 variables.$site-lr-padding300 * 2;
+
+  @include overflows.mx_width1200 {
+    padding: 75px 50px;
+  }
+
+  @include overflows.mx_width1400 {
+    padding: 100px;
+  }
+
+  @include overflows.mx_width1600 {
+    padding: 150px;
+  }
+}

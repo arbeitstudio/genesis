@@ -1,0 +1,24 @@
+//
+//    Anticverse Webraider
+//
+//    Maintainer: Ferit Yiğit BALABAN <balaban.ferityigit@anticverse.com>
+@use "../overflows";
+@use "../variables";
+
+#character-orpheus, #character-eurydice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+
+  img {
+    height: 50vw;
+    border-bottom: solid #4D4D4D 5px;
+    border-radius: 0 0 5px 5px;
+  }
+
+  @include overflows.mx_width500 {
+    flex-direction: row-reverse;
+  }
+}

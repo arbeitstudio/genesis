@@ -1,0 +1,45 @@
+@mixin mx_width1600 {
+  @media screen and (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin mx_width1400 {
+  @media screen and (min-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin mx_width1200 {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin mx_width1000 {
+  @media screen and (min-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin mx_width800 {
+  @media screen and (min-width: 800px) {
+    @content;
+  }
+}
+
+@mixin mx_width500 {
+  // Cihaz viewport genişliği 500 piksele eşit veya büyükse...
+  // width >= 500px
+  @media screen and (min-width: 500px) {
+    @content;
+  }
+}
+
+@mixin mx_width300 {
+  // Cihaz viewport genişliği 300 piksele eşit veya büyükse...
+  // width >= 300px
+  @media screen and (min-width: 300px) {
+    @content;
+  }
+}

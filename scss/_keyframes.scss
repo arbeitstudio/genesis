@@ -1,0 +1,55 @@
+//
+//    Anticverse Webraider
+//
+//    Maintainer: Ferit Yiğit BALABAN <balaban.ferityigit@anticverse.com>
+
+@keyframes pulsate {
+  100% {
+    text-shadow: 5px 5px 23px;
+  }
+
+  0% {
+    text-shadow: 5px 5px 17px;
+  }
+}
+
+@keyframes rotate-gradient {
+  from {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  to {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes wheel {
+  to {
+    opacity: 0;
+    top: 10px;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hue-rotate {
+  from {
+    filter: hue-rotate(0);
+  }
+
+  to {
+    filter: hue-rotate(360deg);
+  }
+}

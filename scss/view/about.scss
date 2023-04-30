@@ -1,0 +1,66 @@
+@use "sass:math";
+@use "../variables";
+@use "../colors";
+@use "../fonts";
+@use "../overflows";
+
+$px_heading1: 50px;
+$px_heading2: 17.5px;
+$px_text: 16px;
+
+#showcase {
+  video {
+    filter: brightness(0.5) saturate(1.5);
+  }
+}
+
+#sec-wrw, #sec-details, #sec-legion {
+  h1 {
+    margin: math.div($px_heading1, 2) 0 math.div($px_heading1, 4) 0;
+    font: 600 $px_heading1 fonts.$font-stack;
+  }
+
+  h2 {
+    margin: math.div($px_heading2, 2) 0 math.div($px_heading2, 4) 0;
+    font: 600 $px_heading2 fonts.$font-stack;
+  }
+
+  p {
+    margin: math.div($px_text, 4) 0;
+    font-size: $px_text;
+    text-align: justify;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+
+    &:nth-of-type(2) {
+      margin-top: $px_text;
+    }
+  }
+}
+
+#sec-wrw {
+  background: colors.$cl-dark500;
+}
+
+#sec-details {
+  background: colors.$cl-dark400;
+}
+
+#sec-join-us {
+  background: -webkit-linear-gradient(to top, #c31432, #240b36);
+  background: linear-gradient(to top, #c31432, #240b36);
+}
+
+#sec-legion {
+  background: #212121;
+
+  .hr-under-senate {
+    border: 1px #444 solid;
+    box-shadow: 0 5px 10px 0 variables.$cl-senato;
+  }
+
+  .hr-under-leader {
+    border: 1px #111 solid;
+    box-shadow: 0 5px 10px 0 variables.$cl-leader;
+  }
+}
