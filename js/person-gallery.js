@@ -1,8 +1,12 @@
 /*
- *      Anticverse Webraider
- *
+ *      Anticverse Webraider © 2023
+ *      The Genesis Framework
+ *      https://github.com/anticverse/genesis.git (anticverse/genesis)
  *      Maintainer: Ferit Yiğit BALABAN <balaban.ferityigit@anticverse.com>
+ *
+ *      genesis/js/person-gallery.js
  */
+
 
 const personvideoArr
     = document.querySelectorAll(".c-p-video")
