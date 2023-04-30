@@ -33,4 +33,4 @@ const query = ".anim-slide-down-appear,.anim-slide-right-appear,.anim-slide-up-a
 let targets = document.querySelectorAll(query);
 targets.forEach(target => {
     observer.observe(target);
-})
+});
