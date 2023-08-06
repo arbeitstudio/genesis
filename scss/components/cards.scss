@@ -341,8 +341,10 @@ $logo-height: 80px;
       font-size: 12px;
 
       $border-colors: (
-              "lodom": colors.$cl-border-color-lodom,
-              "webraider": colors.$cl-border-color-webraider,
+              "lodom":      colors.$cl-border-color-lodom,
+              "webraider":  colors.$cl-border-color-webraider,
+              "redpill":    colors.$cl-border-color-redpill,
+              "datum":      colors.$cl-border-color-datum,
       );
 
       @each $color, $value in $border-colors {
