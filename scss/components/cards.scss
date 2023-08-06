@@ -341,8 +341,10 @@ $logo-height: 80px;
       font-size: 12px;
 
       $border-colors: (
-              "lodom": colors.$cl-border-color-lodom,
-              "webraider": colors.$cl-border-color-webraider,
+              "lodom":      colors.$cl-border-color-lodom,
+              "webraider":  colors.$cl-border-color-webraider,
+              "redpill":    colors.$cl-border-color-redpill,
+              "datum":      colors.$cl-border-color-datum,
       );
 
       @each $color, $value in $border-colors {
@@ -358,23 +360,23 @@ $logo-height: 80px;
     } // End of class: .c-w-title
 
     .c-w-c-description {
-      margin: 0;
+      margin: 0 0 0 50px;
       text-align: end;
     } // End of class: .c-w-description
   } // End of class: .c-w-content
 
-  &:before {
-    content: "";
+  .c-w-panel {
     position: absolute;
-    z-index: 0;
-
     width: 100%;
     height: 100%;
-    clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
-
     background-color: rgb(66 66 66 / 66%);
-    border-radius: 0 0 16px 16px;
     backdrop-filter: blur(33px);
+
+    -webkit-clip-path: url(#my-clip-path);
+    clip-path: url(#my-clip-path);
+
+    //rotate: 90deg;
+    //transform: scaleY(-1);
   }
 
   .c-w-cover {
@@ -382,6 +384,7 @@ $logo-height: 80px;
     height: 99%;
     z-index: -1;
     object-fit: cover;
+    object-position: left;
 
     border-radius: 16px 16px 0 0;
 
@@ -418,8 +421,13 @@ $logo-height: 80px;
       border-radius: 0 16px 16px 0;
     }
 
+    .c-w-panel {
+      rotate: none;
+      transform: none;
+    }
+
     .c-w-cover {
-      width: unset;
+      width: 99%;
       height: 90%;
 
       border-radius: 16px 0 0 16px;
