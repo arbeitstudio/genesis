@@ -166,7 +166,11 @@ h1 {
 }
 
 .padded {
-  padding: variables.$site-lr-padding300 * 3 variables.$site-lr-padding300 * 2;
+  padding: 60px 20px;
+
+  @include overflows.mx_width500 {
+    padding: variables.$site-lr-padding300 * 3 variables.$site-lr-padding300 * 2;
+  }
 
   @include overflows.mx_width1200 {
     padding: 75px 50px;
