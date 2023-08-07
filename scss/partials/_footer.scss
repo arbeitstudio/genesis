@@ -9,6 +9,8 @@
 @use "../overflows";
 
 #footer {
+  background-color: #8855bd;
+  color: colors.$cl-light100;
   display: flex;
   flex-direction: column;
   align-items: center;
