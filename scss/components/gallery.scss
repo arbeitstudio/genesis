@@ -5,6 +5,17 @@
 
 @use "../overflows";
 
+.gallery-ecol {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  margin: 90px 0 0 0;
+  row-gap: 5vh;
+  column-gap: 5vw;
+}
+
 .gallery-person-project {
   display: flex;
   justify-content: space-evenly;
