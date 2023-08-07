@@ -1,0 +1,187 @@
+//
+//    Anticverse Webraider
+//
+//    Maintainer: Ferit Yiğit BALABAN <balaban.ferityigit@anticverse.com>
+//    partials/_hamburger.scss
+
+@use "../colors";
+@use "../overflows";
+@use "../gradients";
+@use "../variables";
+
+#hamburger-container {
+  display: inline-flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  justify-content: flex-end;
+
+  .menu-icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+
+    .menu-icon-input {
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      z-index: 2;
+      position: absolute;
+      opacity: 0;
+    }
+
+    div {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      width: 22px;
+      height: 12px;
+    }
+    span {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      border-radius: 1px;
+      transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+
+      &:first-of-type {
+        top: 0;
+        right: 0;
+      }
+
+      &:last-of-type {
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    &.active, .menu-icon-input:checked + div {
+      span {
+        &:first-of-type {
+          transform: rotate(45deg);
+          top: 5px;
+        }
+
+        &:last-of-type {
+          transform: rotate(-45deg);
+          bottom: 5px;
+        }
+      }
+    }
+
+    &.active:hover span:first-of-type,
+    &.active:hover span:last-of-type,
+    &:hover .menu-icon-input:checked + div span:first-of-type,
+    &:hover .menu-icon-input:checked + div span:last-of-type {
+      width: 22px;
+    }
+
+    &:hover {
+      span:first-of-type {
+        width: 26px;
+      }
+
+      span:last-of-type {
+        width: 12px;
+      }
+    }
+  }
+
+  @include overflows.mx_width1200 {
+    display: none;
+  }
+}
+
+.active {
+  height: 100vh !important;
+  opacity: 1 !important;
+}
+
+.visible {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: opacity ease-out 450ms;
+  @for $i from 1 through 4 {
+    &:nth-of-type(#{$i}) {
+      transition-delay: ($i * 150ms);
+    }
+  }
+}
+
+#menu {
+  height: 0;
+  opacity: 0;
+  z-index: 99;
+
+  background: gradients.$grad-premium-dark;
+  background-size: 280%;
+  position: absolute;
+  width: 100%;
+  transition: height ease-out 250ms, opacity ease-out 250ms;
+
+  box-sizing: border-box;
+  padding: variables.$site-lr-padding300 * 0.3 variables.$site-lr-padding300 !important;
+  @include overflows.mx_width800 {
+    padding: variables.$site-lr-padding200 * 0.3 variables.$site-lr-padding200 !important;
+  }
+  @include overflows.mx_width1200 {
+    padding: variables.$site-lr-padding * 0.3 variables.$site-lr-padding !important;
+  }
+
+  .menu-nav {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .menu-navitem {
+      opacity: 0;
+      visibility: hidden;
+      margin-bottom: 0.5em;
+      font-size: 20px;
+
+      &:after {
+        content: "↩";
+        margin-left: 0.5em;
+        transition: margin 150ms ease-in, color 150ms ease-in;
+      }
+
+      &:hover {
+        &:after {
+          color: colors.$cl-them100;
+          margin-left: 0.1em;
+        }
+      }
+
+      &:active {
+        color: colors.$cl-them100;
+        &:after {
+          content: "↗";
+        }
+      }
+    }
+
+    @include overflows.mx_width800 {
+      // .menu-nav yukarıdan 180px aşağıda başlasın
+      margin-top: 160px;
+
+      .menu-navitem {
+        font-size: 30px;
+      }
+    }
+  }
+
+  @include overflows.mx_width1200 {
+    // 800 pikselin üzerine çıkılıp, hamburger menü ikonu saklandığı zaman
+    // eğer .active class'ı halen duruyorsa media query'si ile önüne geç
+    // Hedef: viewport >= 800px iken #menu açıksa bile görülmemeli
+    height: 0 !important;
+    opacity: 0 !important;
+  }
+}
