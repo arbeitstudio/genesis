@@ -1,0 +1,11 @@
+.button-transition-squish {
+  transition: transform ease-in-out 150ms;
+
+  &:hover {
+    transform: scale(0.9);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+}

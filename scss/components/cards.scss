@@ -354,3 +354,36 @@
     } // End of pseudo: hover
   }
 } // End of class: .card-work
+
+.card-basic {
+  background-color: colors.$cl-dark400;
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 20px;
+  padding: 80px 40px;
+
+  width: clamp(250px, 33%, 350px);
+  min-height: clamp(300px, 10vh, 400px);
+
+  h1 {
+    margin: 0 0 32px 0;
+    font-size: 32px;
+  }
+
+  p {
+    margin: 0 0 32px 0;
+    font-size: 16px;
+    text-align: justify;
+  }
+
+  nav {
+    margin: 0;
+    display: inline-flex;
+    justify-content: space-evenly;
+
+    width: 100%;
+  }
+}

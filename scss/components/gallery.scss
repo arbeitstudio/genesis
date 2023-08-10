@@ -43,3 +43,13 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+.gallery-card-basic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  row-gap: 5vh;
+  column-gap: 5vw;
+
+}
