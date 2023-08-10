@@ -8,3 +8,5 @@
 
 mkdir -p "../../assets/js"
 cp -v ../js/*.js "../../assets/js/"
+mkdir -p "../../assets/logos"
+cp -v ../logos/*.svg "../../assets/logos/"
