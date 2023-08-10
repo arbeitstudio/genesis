@@ -32,3 +32,13 @@
     border-width: 2px;
 }
 }
+
+.button-soft-square {
+  border: none;
+
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  padding: 20px;
+  border-radius: 20px;
+}
