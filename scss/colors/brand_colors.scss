@@ -1,0 +1,18 @@
+$color-discord: #5865F2;
+$color-gforms: #673AB7;
+
+$colors: ("discord": $color-discord,
+        "gforms": $color-gforms,
+);
+
+@each $name, $color in $colors {
+  a[data-bgcolor=#{$name}] {
+    background-color: $color;
+  }
+}
+
+@each $name, $color in $colors {
+  a[data-fgcolor=#{$name}] {
+    color: $color;
+  }
+}
