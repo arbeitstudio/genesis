@@ -7,6 +7,8 @@
 @use "../fonts";
 @use "../variables";
 
+@use "../button/button__transitions";
+
 .button {
   font: 400 16px "Montserrat", sans-serif;
   color: #FFF;
