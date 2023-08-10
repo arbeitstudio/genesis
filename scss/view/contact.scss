@@ -158,3 +158,33 @@ $px-text: 18px;
     }
   }
 }
+
+#offices {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 5vh;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content min-content min-content 1fr;
+  grid-template-areas:
+    "title"
+    "desc"
+    "nav"
+    "map";
+
+  h1 { grid-area: title; font-size: 32px; margin: 0; }
+  p { grid-area: desc; margin: 0; }
+  nav { grid-area: nav; }
+  #map { grid-area: map; border: none; min-height: 50vh; width: 100%; }
+
+
+  @include overflows.mx_width800 {
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas:
+            "title nav"
+            "desc map";
+
+    h1 { margin: 0 0 32px 0; }
+  }
+}
