@@ -1,1 +1,9 @@
 @use "../anchor/anchor__icons";
+
+.anchor-simple-link {
+  text-underline-offset: 2px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
