@@ -6,10 +6,5 @@
 #
 #     genesis/staging/copy_over.sh
 
-echo "Copying JavaScript"
 mkdir -p "../../assets/js"
 cp -v ../js/*.js "../../assets/js/"
-
-echo "Copying logos"
-mkdir -p "../../assets/logos"
-cp -v ../logos/*.svg "../../assets/logos/"
