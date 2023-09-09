@@ -52,15 +52,13 @@ $px_text: 16px;
 }
 
 #sec-legion {
-  background: #212121;
+  background: #000000;
 
   .hr-under-senate {
     border: 1px #444 solid;
-    box-shadow: 0 5px 10px 0 variables.$cl-senato;
   }
 
   .hr-under-leader {
-    border: 1px #111 solid;
-    box-shadow: 0 5px 10px 0 variables.$cl-leader;
+    border: 1px #444 solid;
   }
 }

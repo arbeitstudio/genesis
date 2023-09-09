@@ -54,6 +54,7 @@
   right: 0;
   bottom: 50px;
 
+
   width: 50px;
   height: 90px;
   border: 3px solid #ffffff90;
@@ -81,5 +82,150 @@
 
   h1 {
     color: #000;
+  }
+}
+
+.footer {
+  max-width: 100%;
+  height: 100%;
+  background-color: #ba83f0;
+  padding: 70px 0 50px 0;
+  position: relative;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  margin: 20px 10px 100px 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin-bottom: 15px;
+}
+
+hr {
+  border-width: 0.1px;
+  border-color: #fff;
+}
+
+.footer-content {
+  max-width: 97%;
+  margin: auto;
+  
+}
+
+#copyright{
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 25px; 
+  padding-right: 25px;
+}
+
+.footer-col {
+  width: 18%;
+  padding: 0 10px;
+
+}
+
+.footer-col {
+  h4 {
+  font-size: 18px;
+  color: #fff;
+  text-transform: capitalize;
+    }
+}
+
+.av-logo {
+  width: 60px;
+  text-align: center;
+}
+
+.av-logo {
+  img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+      }
+}
+
+.av {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+}
+
+.anticverse-footer {
+  display: inline-block;
+  margin-left: 25px;
+  height: 80px;
+}
+
+.av-logo, .av-header {
+  margin-right: 25px;
+  float: left;
+}
+
+.footer-navbar{
+  height: 20px;
+  padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 25px; 
+  padding-right: 25px;
+  display: flex;
+
+  a {
+    padding-right: 5px;
+    padding-left: 5px;
+    border-right: 1px solid white;
+    justify-content: center;
+    text-align: center;
+    
+    &:last-child {
+      border-right: none;
+    }
+  }
+  
+}
+
+
+.footer-nav {
+  display: flex; 
+  justify-content: space-between; 
+}
+
+
+@media (max-width: 1000px) {
+  .row {
+    flex-direction:row;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content:space-between;
+    align-content: space-between;
+  }
+
+  .footer-navbar {
+    justify-content: center;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-col {
+    flex: 1;
+    min-width: calc(40%); 
+    margin-bottom: 50px;
+    margin-right: 20px;
   }
 }

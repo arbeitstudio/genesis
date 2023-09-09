@@ -5,20 +5,390 @@
 @use "../overflows";
 @use "../variables";
 
-#character-orpheus, #character-eurydice {
+
+#header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+  &:before {
+    content: "";
+    position: absolute;
+    top: -300px;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: #191919;
+    animation: slideDown 3.5s forwards;
+  }
+}
+
+#headerb {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  0% {
+    top: -300px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+#video-container {
+  position: relative;
+  width: 100%;
+  height: 250%;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top, #191919 1%, rgba(235, 225, 225, 0));
+}
+
+#video-background {
+  position: absolute;
+  object-fit: contain;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  background: linear-gradient(to bottom, #191919 1%, rgba(235, 225, 225, 0));
+}
+
+#content {
+  z-index: 1;
+  text-align: center;
+  color: white;
+}
+
+.footer-link {
+  margin: 50px;
+}
+
+#header #header-lower #navbar {
+  display: none;
+  flex-basis: 0;
+  flex-grow: 1;
+  justify-content: flex-end;
+  .navitem {
+    margin-right: 10px;
+    font: 300 20px "Montserrat", sans-serif;
+  }
+  @media screen and (min-width: 800px) {
+    .navitem {
+      font: 300 20px "Montserrat", sans-serif;
+    }
+  }
+  .navitem-select a {
+    cursor: default;
+    color: #c48bfc;
+  }
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    margin-top: 70px;
+  }
+}
+
+#header #header-lower #img-container {
+  flex-basis: 0;
+  flex-grow: 1;
+  img {
+    height: 50px;
+  }
+  @media screen and (min-width: 800px) {
+    img {
+      height: 70px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    img {
+      height: 80px;
+      margin-top: 50px;
+    }
+  }
+}
+
+#character-orpheus,
+#character-eurydice {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   position: relative;
-
   img {
     height: 50vw;
-    border-bottom: solid #4D4D4D 5px;
+    border-bottom: solid #4d4d4d 5px;
     border-radius: 0 0 5px 5px;
   }
-
-  @include overflows.mx_width500 {
+  @media screen and (min-width: 500px) {
     flex-direction: row-reverse;
+  }
+}
+
+.custom-button {
+  background-color: #111111;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#button-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#button-container {
+  display: inline-block;
+  margin: 0 0.1px;
+}
+
+#gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#gallery-item {
+  box-sizing: border-box;
+  width: 250px;
+  text-align: center;
+  margin: 0 30px 100px 30px;
+  transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  border: 4px solid transparent;
+  border-radius: 25px;
+  opacity: 0.5;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+  }
+  &:hover {
+    transform: translateY(-10px);
+    border: 4px solid #4a51ff;
+    border-radius: 25px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
+    opacity: 1;
+    &:not(:hover) {
+      transition-delay: 0.1s;
+    }
+  }
+}
+
+#orpheustext {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/assets/media/projects/orpheus/textorpheusbackground.jpg");
+  background-size: cover;
+  background-position: center;
+  text-align: justify;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  &.fade-in-bg {
+    animation: fadeInBackground 0.5s ease;
+  }
+}
+
+@keyframes fadeInBackground {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#the-orpheus-series {
+  padding: 300px 500px 300px 100px;
+  color: white;
+  h1,
+  p {
+    text-align: justify;
+    margin-bottom: 20px;
+  }
+  h1 {
+    margin-bottom: 50px;
+  }
+}
+
+#disc-to-orpheus {
+  width: 100%;
+  background-image: url("/assets/media/projects/orpheus/disc-to-orpheus.webp");
+  background-size: cover;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+#dto-container {
+  padding: 100px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 150px;
+}
+
+#action {
+  width: 400px;
+  height: 600px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 50px 70px 50px;
+  &:hover {
+    transform: scale(1.05);
+  }
+  #top-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    img {
+      border-radius: 25px;
+      border: 2px solid white;
+    }
+  }
+  #bottom-content {
+    flex: 1;
+    padding: px;
+    p {
+      margin: 0;
+      margin-top: 20px;
+      margin-left: 15px;
+      margin-right: 5px;
+    }
+    h1 {
+      margin-left: 15px;
+    }
+  }
+}
+
+#meet-the-char h1 {
+  margin-top: 100px;
+  text-align: center;
+}
+
+#characters-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 90px;
+  margin-bottom: 150px;
+  .characters {
+    margin: 70px 100px;
+    backdrop-filter: blur(0.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgb(0, 0, 0);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: rgba(122, 122, 122, 0.137);
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    img {
+      width: 450px;
+      height: auto;
+    }
+  }
+}
+
+#video-section {
+  width: 100%;
+  h1 {
+    margin-top: 30px;
+    text-align: center;
+  }
+  #orpheus-videos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 50px 0 150px 0;
+  }
+}
+
+#community-content {
+  padding: 200px 820px 200px 150px;
+  h1 {
+    margin-bottom: 30px;
+  }
+  #community-buttons {
+    margin-top: 30px;
+  }
+  #learn-more,
+  #dc {
+    display: inline-block;
+    vertical-align: top;
+    transition: transform 0.2s;
+  }
+  #learn-more:hover,
+  #dc:hover {
+    transform: scale(1.05);
+  }
+  #learn-more {
+    padding: 23px;
+    cursor: pointer;
+    background: #282727;
+    border-radius: 23px;
+    color: #fff;
+    border: none;
+    font: 350 20px "Montserrat", sans-serif;
+    margin-right: 20px;
+    transition: transform 0.2s;
+  }
+  #dc {
+    width: 75px;
+    height: 70px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    background-color: #244cb4;
+    padding: 10px 20px;
+  }
+}
+
+#faqsection {
+  background-image: url('/assets/media/projects/orpheus/world.webp');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  #faq {
+    display: inline-block;
+    margin: 150px 150px 150px 80px;
+    h1 {
+      margin-bottom: 20px;
+      font-size: 35px;
+    }
+  }
+}
+
+#about-lodom {
+  background-color: white;
+  padding: 50px 100px 50px 100px;
+  margin-bottom: 200px;
+  #lodom-text p,
+  #lodom-text h1 {
+    color: black;
+  }
+  #lodom-text h1 {
+    text-align: center;
+    margin-bottom: 50px;
   }
 }

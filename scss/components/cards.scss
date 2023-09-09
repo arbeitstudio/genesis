@@ -38,10 +38,9 @@
   padding: 20px;
 
   border-radius: 40px;
+  border: #04b440;
   transition: box-shadow variables.$transition ease-in-out,
   background-color variables.$transition ease-in-out;
-
-  margin: clamp(30px, 5vh, 60px) 0;
   width: clamp(235px, 30%, 300px);
   z-index: 0;
 
@@ -135,20 +134,49 @@
 } // End of class: .card-person
 
 .card-person-senate {
-  @include mixins.card-person-flavor(variables.$cl-senato, variables.$cl-senate-shadow);
+  background:#191919;
+  &:before {
+    background:#191919;
+   }
+  &:hover {
+    box-shadow: 5px 5px 5px #2c2a2a; /*Golge rengine tekrar gozat*/
+   }
 
+.c-p-text-area h2 {
+  color: #eb00ff;
+}
   @include overflows.mx_width500 {
     width: clamp(450px, 75%, 500px);
   }
 } // End of class: .card-person-senate
 
 .card-person-leader {
-  @include mixins.card-person-flavor(variables.$cl-leader, variables.$cl-leader-shadow);
+  background:#191919;
+  &:before {
+    background:#191919;
+}
+
+&:hover {
+  box-shadow: 5px 5px 5px #2c2a2a; 
+}
+
+.c-p-text-area h2 {
+  color: #00ffe0;
+}
 } // End of class: .card-person-leader
 
 .card-person-legion {
-  @include mixins.card-person-flavor(variables.$cl-legion, variables.$cl-legion-shadow);
+  background:#191919;
+  &:before {
+    background:#191919;
+}
+  &:hover {
+    box-shadow: 5px 5px 5px #2c2a2a;  /*Golge rengine tekrar gozat*/
+}
 
+.c-p-text-area h2 {
+  color: #f60000;
+}
   @include overflows.mx_width500 {
     width: clamp(300px, 75%, 400px);
 
@@ -160,8 +188,40 @@
     .c-p-nav {
       left: 142px;
     }
+
+
+
   }
 } // End of class: .card-person-legion
+
+.card-person-boardmember {
+  background:#191919;
+  width: calc(25% - 10px);
+  box-sizing: border-box;
+
+  &:before {
+    background:#191919;
+}
+  &:hover {
+    box-shadow: 5px 5px 5px #2c2a2a;  /*Golge rengine tekrar gozat*/
+}
+
+.c-p-text-area h2 {
+  color: #FFE500;
+}
+
+@include overflows.mx_width500{
+    width: clamp(300px, 75%, 400px);
+
+  .c-p-video {
+    width: 120px;
+    height: 120px;
+  }
+  .c-p-nav {
+    left: 142px;
+  }
+}
+}
 
 .card-person-project {
   display: flex;
@@ -219,6 +279,10 @@
   }
 } // End of class: .card-person-project-leader
 
+.card-person-buttons{
+  display: flex;
+  margin: 0px;
+}
 .card-work {
   position: relative;
   display: flex;

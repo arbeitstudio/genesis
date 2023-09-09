@@ -37,6 +37,17 @@
   }
 }
 
+#sec-boardm {
+   display: flex;
+   flex-wrap: wrap;
+   place-items: center;
+ }
+
+ #sec-boardmember {
+   display: flex;
+   flex-wrap: wrap;
+ }
+
 .gallery-work {
   display: flex;
   flex-direction: row;
