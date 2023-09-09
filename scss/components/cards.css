@@ -1,4 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap");
+.card-ecol {
+  background-color: #1f1f1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: clamp(30px, 1%, 50px);
+  width: clamp(100px, 20vw, 300px);
+  height: clamp(100px, 20vw, 300px);
+  border-radius: 30px;
+  transition: max-height 0.5s ease, opacity 0.5s, transform 0.5s;
+}
+.card-ecol:hover {
+  transform: translateY(-10px);
+}
+.card-ecol img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 .card-gallery {
   display: flex;
   flex-direction: row;
@@ -24,7 +44,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  color: #191919;
+  color: #f8f8f8;
   width: 100%;
   height: 100%;
 }
@@ -103,15 +123,19 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding: 20px;
   border-radius: 40px;
   border: #04b440;
   transition: box-shadow 350ms ease-in-out, background-color 350ms ease-in-out;
   width: clamp(235px, 30%, 300px);
   z-index: 0;
 }
+.card-person img {
+  width: 70px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .card-person .c-p-video {
-  border-radius: 20px;
+  border-radius: 15px;
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
@@ -192,12 +216,15 @@
 
 .card-person-senate {
   background: #191919;
+  border-radius: 17px;
+  padding: 20px;
+  transition: max-height 0.5s ease, opacity 0.5s, transform 0.5s;
 }
 .card-person-senate:before {
   background: #191919;
 }
 .card-person-senate:hover {
-  box-shadow: 5px 5px 5px #2c2a2a; /*Golge rengine tekrar gozat*/
+  transform: scale(1.05);
 }
 .card-person-senate .c-p-text-area h2 {
   color: #eb00ff;
@@ -205,30 +232,44 @@
 @media screen and (min-width: 500px) {
   .card-person-senate {
     width: clamp(450px, 75%, 500px);
+    transition: max-height 0.5s ease, opacity 0.5s, transform 0.5s;
+  }
+  .card-person-senate:hover {
+    transform: scale(1.05);
   }
 }
 
 .card-person-leader {
   background: #191919;
+  border-radius: 17px;
+  padding: 20px;
+  transition: max-height 0.5s ease, opacity 0.5s, transform 0.5s;
 }
-.card-person-leader:before {
+.card-person-leader :before {
   background: #191919;
 }
-.card-person-leader:hover {
-  box-shadow: 5px 5px 5px #2c2a2a;
+.card-person-leader :hover {
+  transform: scale(1.05);
 }
 .card-person-leader .c-p-text-area h2 {
   color: #00ffe0;
 }
 
 .card-person-legion {
+  display: flex;
   background: #191919;
+  width: 100%;
+  height: 100%;
+  border-radius: 17px;
+  margin: 0;
+  box-sizing: border-box;
+  transition: max-height 0.5s ease, opacity 0.5s, transform 0.5s;
 }
 .card-person-legion:before {
   background: #191919;
 }
 .card-person-legion:hover {
-  box-shadow: 5px 5px 5px #2c2a2a; /*Golge rengine tekrar gozat*/
+  transform: scale(1.05);
 }
 .card-person-legion .c-p-text-area h2 {
   color: #f60000;
@@ -248,14 +289,17 @@
 
 .card-person-boardmember {
   background: #191919;
-  width: calc(25% - 10px);
-  box-sizing: border-box;
+  width: 100%;
+  border-radius: 17px;
+  margin: 0;
+  transition: max-height 0.5s ease, opacity 0.5s, transform 0.5s;
+  padding: 10px 20px;
 }
 .card-person-boardmember:before {
   background: #191919;
 }
 .card-person-boardmember:hover {
-  box-shadow: 5px 5px 5px #2c2a2a; /*Golge rengine tekrar gozat*/
+  transform: scale(1.05);
 }
 .card-person-boardmember .c-p-text-area h2 {
   color: #FFE500;
@@ -278,11 +322,12 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding: 20px 10px;
+  padding: 40px 10px;
   width: 300px;
   background-color: #191919;
   border-radius: 20px;
   margin-top: 10px;
+  margin-bottom: 15px;
 }
 .card-person-project:after {
   content: "";
@@ -358,28 +403,31 @@
   border-color: #0094FF;
 }
 .card-work .c-w-content .c-w-c-ecol[data-border-color=webraider] {
-  border-color: #04B440;
+  border-color: #D2738A;
+}
+.card-work .c-w-content .c-w-c-ecol[data-border-color=redpill] {
+  border-color: #FF3430;
+}
+.card-work .c-w-content .c-w-c-ecol[data-border-color=datum] {
+  border-color: #6AFF6A;
 }
 .card-work .c-w-content .c-w-c-title {
   margin: 10px 0 20px;
   text-align: end;
 }
 .card-work .c-w-content .c-w-c-description {
-  margin: 0;
+  margin: 0 0 0 50px;
   text-align: end;
 }
-.card-work:before {
-  content: "";
+.card-work .c-w-panel {
   position: absolute;
-  z-index: 0;
   width: 100%;
   height: 100%;
-  -webkit-clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
-          clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
   background-color: rgba(66, 66, 66, 0.66);
-  border-radius: 0 0 16px 16px;
   -webkit-backdrop-filter: blur(33px);
           backdrop-filter: blur(33px);
+  -webkit-clip-path: url(#my-clip-path);
+  clip-path: url(#my-clip-path);
 }
 .card-work .c-w-cover {
   width: 90%;
@@ -387,6 +435,8 @@
   z-index: -1;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: left;
+     object-position: left;
   border-radius: 16px 16px 0 0;
   transition: filter 350ms ease-out, transform 350ms ease-out;
   filter: grayscale(0.8);
@@ -415,8 +465,12 @@
             clip-path: polygon(30% 0, 100% 0%, 100% 100%, 0 100%);
     border-radius: 0 16px 16px 0;
   }
+  .card-work .c-w-panel {
+    rotate: none;
+    transform: none;
+  }
   .card-work .c-w-cover {
-    width: unset;
+    width: 99%;
     height: 90%;
     border-radius: 16px 0 0 16px;
   }
@@ -427,4 +481,30 @@
     filter: grayscale(0);
     transform: translateX(-100px);
   }
+}
+
+.card-basic {
+  background-color: #1f1f1f;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  padding: 80px 40px;
+  width: clamp(250px, 33%, 350px);
+  min-height: clamp(300px, 10vh, 400px);
+}
+.card-basic h1 {
+  margin: 0 0 32px 0;
+  font-size: 32px;
+}
+.card-basic p {
+  margin: 0 0 32px 0;
+  font-size: 16px;
+  text-align: justify;
+}
+.card-basic nav {
+  margin: 0;
+  display: inline-flex;
+  justify-content: space-evenly;
+  width: 100%;
 }/*# sourceMappingURL=cards.css.map */

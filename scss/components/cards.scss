@@ -10,18 +10,23 @@
 @use "../variables";
 @use "../mixins";
 
-.card-ecol {
-  background-color: colors.$cl-dark400;
+$logo-height: 80px;
 
+.card-ecol {
+  background-color: #1f1f1f;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-
   padding: clamp(30px, 1%, 50px);
   width: clamp(100px, 20vw, 300px);
   height: clamp(100px, 20vw, 300px);
   border-radius: 30px;
+  transition: max-height 0.5s ease, opacity 0.5s, transform 0.5s;
+
+  &:hover{
+    transform: translateY(-10px);
+  }
 
   img {
     max-width: 100%;
@@ -29,14 +34,114 @@
   }
 }
 
+.card-gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 100px 0 0 0;
+
+  .card {
+    position: relative;
+  margin: 0 0 2.5em 0;
+  width: 300px;
+  height: 300px;
+  background-color: #191919;
+  overflow: hidden;
+  border-radius: 30px;
+    
+    @include overflows.mx_width800 {
+      margin: 0 5em 2.5em 0;
+    }
+
+    .image {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      color: #f8f8f8;
+      width: 100%;
+      height: 100%;
+
+      img {
+        height: $logo-height;
+        transition: margin-top 250ms ease-out;
+        margin: 30% 0 0 0;
+      }
+    }
+
+    .content {
+      // Burayı okuyan arkadaştan özür dilerim, kartın genel çalışma biçimi
+      // fazlasıyla sıkıntılı, dolayısıyla şu anda felaket bir hack yazmaktan
+      // başka bir çare bulamıyorum, Allah yardımcın olsun :)
+      max-height: 140px;
+      min-height: 140px;
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      padding: 20px;
+      background: #f2f2f2;
+      border-top-left-radius: 30px;
+      transform: translateY(110px);
+      transition: transform .25s ease-out;
+      text-align: left;
+
+      .title {
+        font: 600 22px fonts.$font-stack;
+        color: #000000;
+      }
+
+      .description {
+        font: 400 14px fonts.$font-stack;
+        opacity: 0;
+        transition: opacity .5s ease-out;
+        transition-delay: 250ms;
+      }
+    }
+
+    &:hover {
+      .image {
+        img {
+          margin: 15% 0;
+        }
+      }
+
+      .content {
+        transform: translateY(50px);
+
+        .description {
+          opacity: 1;
+        }
+      }
+    }
+
+    $hue-degree: 0;
+    @for $i from 1 through 6 {
+      &:nth-of-type(#{$i}) {
+        .image {
+          backdrop-filter: hue-rotate($hue-degree + deg);
+        }
+      }
+      $hue-degree: $hue-degree + 60;
+    }
+
+    &:nth-of-type(5) .image img {
+      width: 200px;
+      height: unset;
+      margin-top: 40%;
+    }
+
+    &:hover:nth-of-type(5) .image img {
+      margin-top: 32%;
+    }
+  }
+}
+
 .card-person {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   position: relative;
-  padding: 20px;
-
   border-radius: 40px;
   border: #04b440;
   transition: box-shadow variables.$transition ease-in-out,
@@ -44,11 +149,16 @@
   width: clamp(235px, 30%, 300px);
   z-index: 0;
 
-  .c-p-video {
-    border-radius: 20px;
+  img {
+    width: 70px;
     object-fit: cover;
-    width: 100%;
-    height: 150px;
+  }
+
+  .c-p-video {
+    border-radius: 15px;
+  object-fit: cover;
+  width: 100%;
+  height: 150px;
   }
 
   .c-p-text-area {
@@ -135,48 +245,73 @@
 
 .card-person-senate {
   background:#191919;
+  border-radius: 17px;
+  padding: 20px;
+  transition: max-height 0.5s ease, opacity 0.5s, transform 0.5s;
+
   &:before {
     background:#191919;
    }
-  &:hover {
-    box-shadow: 5px 5px 5px #2c2a2a; /*Golge rengine tekrar gozat*/
-   }
 
-.c-p-text-area h2 {
-  color: #eb00ff;
-}
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .c-p-text-area h2 {
+    color: #eb00ff;
+  }
   @include overflows.mx_width500 {
     width: clamp(450px, 75%, 500px);
+    transition: max-height 0.5s ease, opacity 0.5s, transform 0.5s;
+
+    &:hover{
+      transform: scale(1.05);
+    }
   }
 } // End of class: .card-person-senate
 
 .card-person-leader {
   background:#191919;
+    border-radius: 17px;
+    padding: 20px;
+    transition: max-height 0.5s ease, opacity 0.5s, transform 0.5s;
+
+    :before {
+      background:#191919;
+  }
+
+  :hover {
+    transform: scale(1.05); 
+  }
+
+  .c-p-text-area h2 {
+    color: #00ffe0;
+  }
+} // End of class: .card-person-leader
+
+.card-person-legion {
+  display: flex;
+  background:#191919;
+  width: 100%;
+  height: 100%;
+  border-radius: 17px;
+  margin: 0;
+  box-sizing: border-box;
+  transition: max-height 0.5s ease, opacity 0.5s, transform 0.5s;
+
   &:before {
     background:#191919;
 }
 
 &:hover {
-  box-shadow: 5px 5px 5px #2c2a2a; 
-}
-
-.c-p-text-area h2 {
-  color: #00ffe0;
-}
-} // End of class: .card-person-leader
-
-.card-person-legion {
-  background:#191919;
-  &:before {
-    background:#191919;
-}
-  &:hover {
-    box-shadow: 5px 5px 5px #2c2a2a;  /*Golge rengine tekrar gozat*/
+  transform: scale(1.05);
 }
 
 .c-p-text-area h2 {
   color: #f60000;
 }
+
+
   @include overflows.mx_width500 {
     width: clamp(300px, 75%, 400px);
 
@@ -188,53 +323,55 @@
     .c-p-nav {
       left: 142px;
     }
-
-
-
   }
 } // End of class: .card-person-legion
 
 .card-person-boardmember {
   background:#191919;
-  width: calc(25% - 10px);
-  box-sizing: border-box;
+  width: 100%;
+  border-radius: 17px;
+  margin: 0;
+  transition: max-height 0.5s ease, opacity 0.5s, transform 0.5s;
+  padding: 10px 20px;
 
   &:before {
     background:#191919;
 }
-  &:hover {
-    box-shadow: 5px 5px 5px #2c2a2a;  /*Golge rengine tekrar gozat*/
+
+&:hover {
+  transform: scale(1.05); 
 }
 
 .c-p-text-area h2 {
   color: #FFE500;
 }
 
-@include overflows.mx_width500{
+@media screen and (min-width: 500px) {
+
     width: clamp(300px, 75%, 400px);
 
-  .c-p-video {
+.c-p-video {
     width: 120px;
     height: 120px;
   }
-  .c-p-nav {
+ .c-p-nav {
     left: 142px;
   }
 }
+
 }
 
 .card-person-project {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   position: relative;
-  padding: 20px 10px;
+  padding: 40px 10px;
   width: 300px;
   background-color: #191919;
   border-radius: 20px;
-
   margin-top: 10px;
+  margin-bottom: 15px;
 
   &:after {
     content: "";
@@ -287,33 +424,27 @@
   position: relative;
   display: flex;
   justify-content: center;
-
   margin-bottom: 20px;
   height: 400px;
-
   transition: margin-top 350ms ease-out;
 
   .c-w-content {
     position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-
-    padding: 20px;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px;
 
     .c-w-c-ecol {
       margin: 0;
-      padding: 6px 12px;
-
-      border-width: 2px;
-      border-style: solid;
-      border-radius: 16px;
-
-      font-size: 12px;
+  padding: 6px 12px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 16px;
+  font-size: 12px;
 
       $border-colors: (
               "lodom":      colors.$cl-border-color-lodom,
@@ -420,15 +551,12 @@
 } // End of class: .card-work
 
 .card-basic {
-  background-color: colors.$cl-dark400;
-
+  background-color: #1f1f1f;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-
   border-radius: 20px;
   padding: 80px 40px;
-
   width: clamp(250px, 33%, 350px);
   min-height: clamp(300px, 10vh, 400px);
 
@@ -447,7 +575,6 @@
     margin: 0;
     display: inline-flex;
     justify-content: space-evenly;
-
     width: 100%;
   }
 }
