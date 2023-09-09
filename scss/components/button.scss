@@ -7,29 +7,33 @@
 @use "../fonts";
 @use "../variables";
 
-@use "../button/button__transitions";
-
-.button {
-  font: 400 16px "Montserrat", sans-serif;
-  color: #FFF;
-  background-color: #FFFFFF08;
-  padding: 7px 23px;
-  border: 1px solid #fff;
-  border-radius: 20px;
-  transition: background-color .1s, border-color .1s;
-  line-height: 24px;
+.button-transition-squish {
+  transition: transform ease-in-out 150ms;
 
   &:hover {
-    background-color: #FFFFFF4D;
+    transform: scale(0.9);
   }
 
   &:active {
-    padding: 6px 22px;
-    border-width: 2px;
+    transform: scale(1);
+  }
+}
+
+.button {
+  font: 400 16px "Montserrat", sans-serif;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.031372549);
+  padding: 7px 23px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  transition: background-color 0.1s, border-color 0.1s;
+  line-height: 24px;  
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3019607843);
   }
 
-  &.on {
-    background-color: #8855BDAA;
+  &:active {
     padding: 6px 22px;
     border-width: 2px;
   }
@@ -37,7 +41,6 @@
 
 .button-soft-square {
   border: none;
-
   box-sizing: border-box;
   width: 60px;
   height: 60px;
