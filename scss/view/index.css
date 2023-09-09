@@ -1,15 +1,45 @@
-//
-//    Anticverse Webraider
-//
-//    Maintainer: Ferit Yiğit BALABAN <balaban.ferityigit@anticverse.com>
-//    views/index.scss
-
-@use "sass:math";
-@use "../variables";
-@use "../fonts";
-@use "../overflows";
-@use "../keyframes";
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap");
+@keyframes pulsate {
+  100% {
+    text-shadow: 5px 5px 23px;
+  }
+  0% {
+    text-shadow: 5px 5px 17px;
+  }
+}
+@keyframes rotate-gradient {
+  from {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0 50%;
+  }
+}
+@keyframes wheel {
+  to {
+    opacity: 0;
+    top: 10px;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hue-rotate {
+  from {
+    filter: hue-rotate(0);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
 #announcement {
   position: fixed;
   bottom: 0;
@@ -24,23 +54,20 @@
   backdrop-filter: blur(10px);
 }
 
-#showcase {
-  video {
-    height: 150vh !important;
+#showcase video {
+  height: 150vh !important;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   top: unset;
-  }
 }
 
-#showcase-low {
-  video {
-    width: 100%;
-    height: 300px;
-    -o-object-fit: cover;
-      object-fit: cover;
-  }
+#showcase-low video {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
+
 #please-scroll-down {
   margin: auto;
   position: absolute;
@@ -51,9 +78,9 @@
   height: 90px;
   border: 3px solid rgba(255, 255, 255, 0.5647058824);
   border-radius: 60px;
-
-  &:before {
-    content: "";
+}
+#please-scroll-down:before {
+  content: "";
   position: absolute;
   top: 60px;
   left: 50%;
@@ -65,18 +92,16 @@
   opacity: 1;
   animation: wheel 2s infinite;
   -webkit-animation: wheel 2s infinite;
-  }
 }
 
 #sec-founders {
   background-color: #FFF;
-
-  h1 {
-    color: #000;
-  }
+}
+#sec-founders h1 {
+  color: #000;
 }
 
-#about-button{
+#about-button {
   display: flex;
   justify-content: right;
   margin: 5px 15px 5px 15px;
@@ -89,8 +114,7 @@
   font-family: Montserrat;
   cursor: pointer;
   transition: transform ease-in-out 150ms;
-  
-  &:hover {
-    transform: scale(1.1);
-  }
 }
+#about-button:hover {
+  transform: scale(1.1);
+}/*# sourceMappingURL=index.css.map */
