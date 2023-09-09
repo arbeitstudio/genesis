@@ -1,0 +1,1 @@
+#character-orpheus,#character-eurydice{display:flex;flex-direction:column;align-items:center;position:relative}#character-orpheus img,#character-eurydice img{height:50vw;border-bottom:solid #4d4d4d 5px;border-radius:0 0 5px 5px}@media screen and (min-width: 500px){#character-orpheus,#character-eurydice{flex-direction:row-reverse}}

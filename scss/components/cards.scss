@@ -10,109 +10,22 @@
 @use "../variables";
 @use "../mixins";
 
-$logo-height: 80px;
+.card-ecol {
+  background-color: colors.$cl-dark400;
 
-.card-gallery {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 100px 0 0 0;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 
-  .card {
-    position: relative;
-    margin: 0 0 2.5em 0;
-    
-    @include overflows.mx_width800 {
-      margin: 0 5em 2.5em 0;
-    }
+  padding: clamp(30px, 1%, 50px);
+  width: clamp(100px, 20vw, 300px);
+  height: clamp(100px, 20vw, 300px);
+  border-radius: 30px;
 
-    width: 300px;
-    height: 300px;
-    background-color: #191919;
-    overflow: hidden;
-    border-radius: 30px;
-
-    .image {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      color: #191919;
-      width: 100%;
-      height: 100%;
-
-      img {
-        height: $logo-height;
-        transition: margin-top 250ms ease-out;
-        margin: 30% 0 0 0;
-      }
-    }
-
-    .content {
-      // Burayı okuyan arkadaştan özür dilerim, kartın genel çalışma biçimi
-      // fazlasıyla sıkıntılı, dolayısıyla şu anda felaket bir hack yazmaktan
-      // başka bir çare bulamıyorum, Allah yardımcın olsun :)
-      max-height: 140px;
-      min-height: 140px;
-
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      padding: 20px;
-      background: #f2f2f2;
-      border-top-left-radius: 30px;
-      transform: translateY(110px);
-      transition: transform .25s ease-out;
-      text-align: left;
-
-      .title {
-        font: 600 22px fonts.$font-stack;
-        color: #000000;
-      }
-
-      .description {
-        font: 400 14px fonts.$font-stack;
-        opacity: 0;
-        transition: opacity .5s ease-out;
-        transition-delay: 250ms;
-      }
-    }
-
-    &:hover {
-      .image {
-        img {
-          margin: 15% 0;
-        }
-      }
-
-      .content {
-        transform: translateY(50px);
-
-        .description {
-          opacity: 1;
-        }
-      }
-    }
-
-    $hue-degree: 0;
-    @for $i from 1 through 6 {
-      &:nth-of-type(#{$i}) {
-        .image {
-          backdrop-filter: hue-rotate($hue-degree + deg);
-        }
-      }
-      $hue-degree: $hue-degree + 60;
-    }
-
-    &:nth-of-type(5) .image img {
-      width: 200px;
-      height: unset;
-      margin-top: 40%;
-    }
-
-    &:hover:nth-of-type(5) .image img {
-      margin-top: 32%;
-    }
+  img {
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 
@@ -403,8 +316,10 @@ $logo-height: 80px;
       font-size: 12px;
 
       $border-colors: (
-              "lodom": colors.$cl-border-color-lodom,
-              "webraider": colors.$cl-border-color-webraider,
+              "lodom":      colors.$cl-border-color-lodom,
+              "webraider":  colors.$cl-border-color-webraider,
+              "redpill":    colors.$cl-border-color-redpill,
+              "datum":      colors.$cl-border-color-datum,
       );
 
       @each $color, $value in $border-colors {
@@ -420,23 +335,23 @@ $logo-height: 80px;
     } // End of class: .c-w-title
 
     .c-w-c-description {
-      margin: 0;
+      margin: 0 0 0 50px;
       text-align: end;
     } // End of class: .c-w-description
   } // End of class: .c-w-content
 
-  &:before {
-    content: "";
+  .c-w-panel {
     position: absolute;
-    z-index: 0;
-
     width: 100%;
     height: 100%;
-    clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
-
     background-color: rgb(66 66 66 / 66%);
-    border-radius: 0 0 16px 16px;
     backdrop-filter: blur(33px);
+
+    -webkit-clip-path: url(#my-clip-path);
+    clip-path: url(#my-clip-path);
+
+    //rotate: 90deg;
+    //transform: scaleY(-1);
   }
 
   .c-w-cover {
@@ -444,6 +359,7 @@ $logo-height: 80px;
     height: 99%;
     z-index: -1;
     object-fit: cover;
+    object-position: left;
 
     border-radius: 16px 16px 0 0;
 
@@ -480,8 +396,13 @@ $logo-height: 80px;
       border-radius: 0 16px 16px 0;
     }
 
+    .c-w-panel {
+      rotate: none;
+      transform: none;
+    }
+
     .c-w-cover {
-      width: unset;
+      width: 99%;
       height: 90%;
 
       border-radius: 16px 0 0 16px;
@@ -497,3 +418,36 @@ $logo-height: 80px;
     } // End of pseudo: hover
   }
 } // End of class: .card-work
+
+.card-basic {
+  background-color: colors.$cl-dark400;
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 20px;
+  padding: 80px 40px;
+
+  width: clamp(250px, 33%, 350px);
+  min-height: clamp(300px, 10vh, 400px);
+
+  h1 {
+    margin: 0 0 32px 0;
+    font-size: 32px;
+  }
+
+  p {
+    margin: 0 0 32px 0;
+    font-size: 16px;
+    text-align: justify;
+  }
+
+  nav {
+    margin: 0;
+    display: inline-flex;
+    justify-content: space-evenly;
+
+    width: 100%;
+  }
+}

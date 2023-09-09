@@ -4,12 +4,6 @@
 #     https://github.com/anticverse/genesis.git (anticverse/genesis)
 #     Maintainer: Ferit Yiğit BALABAN <balaban.ferityigit@anticverse.com>
 #
-#     genesis/staging/copy_over.sh
+#     genesis/staging/compile_scss.sh
 
-echo "Copying JavaScript"
-mkdir -p "../../assets/js"
-cp -v ../js/*.js "../../assets/js/"
-
-echo "Copying logos"
-mkdir -p "../../assets/logos"
-cp -v ../logos/*.svg "../../assets/logos/"
+sass --no-source-map --style=compressed ../scss:../css

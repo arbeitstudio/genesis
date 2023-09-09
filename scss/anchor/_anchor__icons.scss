@@ -1,0 +1,17 @@
+$logos: ("github-white": url("../../logos/github_white.svg"),
+        "instagram-white": url("../../logos/instagram_white.svg"),
+        "twitter-white": url("../../logos/twitter_white.svg"),
+        "discord-white": url("../../logos/discord_white.svg"),
+        "gforms-white": url("../../logos/gforms_white.svg"),
+);
+
+@each $name, $url in $logos {
+  a[data-logo=#{$name}] {
+    display: block;
+    background-image: $url;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+  }
+}

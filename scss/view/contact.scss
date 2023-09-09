@@ -160,116 +160,32 @@ $px-text: 18px;
   }
 }
 
-.contact-divs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 30px; 
-}
+#offices {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 5vh;
 
-.contact {
-  position: relative;
-  display:flow-root;
-  justify-content: center;
-  background-color: #191919;
-  width: 525px;
-  height: 525px;
-  border-radius: 30px;
-  margin: 0 20px;
-  padding: 50px;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content min-content min-content 1fr;
+  grid-template-areas:
+    "title"
+    "desc"
+    "nav"
+    "map";
 
-  h1 {
-    text-align: center;
-    padding-top: 10px;
-    font-size: 200%;
-    margin-top: 80px;
+  h1 { grid-area: title; font-size: 32px; margin: 0; }
+  p { grid-area: desc; margin: 0; }
+  nav { grid-area: nav; }
+  #map { grid-area: map; border: none; min-height: 50vh; width: 100%; }
+
+
+  @include overflows.mx_width800 {
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas:
+            "title nav"
+            "desc map";
+
+    h1 { margin: 0 0 32px 0; }
   }
-
-  p {
-    text-align: justify;
-    padding-top: 20px;
-  }
-
-  &:hover {
-    box-shadow: 5px 5px 5px #2c2a2a;
-  }
-}
-
-.send-mail {
-  position: absolute;
-  bottom: 110px;
-  left: 50%;
-  transform: translateX(-50%);
-  cursor: pointer;
-  background: #282727;
-  border-radius: 23px;
-  color: #fff;
-  padding: 25px 20px;
-  border: none;
-  font: 350 20px "Montserrat", sans-serif;
-  display: block;
-  width: fit-content;
-}
-
-.anticverse-offices {
-  width: 100%;
-  height: 500px;
-}
-
-#google-maps {
-  background-color: #191919;
-  padding:50px;
-  padding-top: 30px;
-  padding-bottom: 70px;
-
-  h1 {
-    margin-bottom: 50px;
-    font-size: xx-large;
-  }
-}
-
-.community-button{
-  width: 75px; 
-  height: 70px; 
-  border-radius: 25px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  margin: 50px 15px 15px 15px;
-}
-
-#dc {
-  background-color: #244CB4;
-}
-
-#gf {
-  background-color: #7248B9;
-}
-
-#dc-and-forms-buttons {
-  position: fixed;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-@media (max-width: 1200px) {
-  .contact-divs {
-    flex-direction: column;
-  }
-
-  .contact {
-    width: 200px;
-    margin-bottom: 50px;
-    margin-top: 40px;
-  }
-
-  .community-button{
-    width: 60px; 
-    height: 60px; 
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-  }
-
 }

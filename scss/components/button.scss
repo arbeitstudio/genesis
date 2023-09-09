@@ -7,72 +7,40 @@
 @use "../fonts";
 @use "../variables";
 
+@use "../button/button__transitions";
+
 .button {
-  margin: 10px;
-  cursor: pointer;
-  background: #202020;
-  box-shadow: inset 20px 20px 10px -30px #FFFFFF;
-  border-radius: 14px;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  font: 300 16px fonts.$font-stack;
-  transition: transform 150ms ease-in-out, box-shadow 150ms cubic-bezier(0.55, 0.09, 0.68, 0.53);
+  font: 400 16px "Montserrat", sans-serif;
+  color: #FFF;
+  background-color: #FFFFFF08;
+  padding: 7px 23px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  transition: background-color .1s, border-color .1s;
+  line-height: 24px;
 
   &:hover {
-    box-shadow: inset -20px -20px 20px -30px #FFFFFF;
-    transform: scale(1.1);
+    background-color: #FFFFFF4D;
   }
 
   &:active {
-    transform: scale(0.9);
-    box-shadow: 6px 6px 10px -5px #FFFFFF;
+    padding: 6px 22px;
+    border-width: 2px;
+  }
+
+  &.on {
+    background-color: #8855BDAA;
+    padding: 6px 22px;
+    border-width: 2px;
   }
 }
 
-.buttons {
-  display: flex;
-  justify-content: center;
-  margin-right: 20px;
-  border-radius: 18px;
+.button-soft-square {
   border: none;
-  padding: 40px 20px;
-  color: #ffffff;
-  font-size: large;
-  font-family: Montserrat;
-  cursor: pointer;
-}
 
-
-#dc-and-forms-buttons {
-  position: absolute;
-    bottom: 95px;
-    left: 50%;
-    transform: translateX(-50%);
-    cursor: pointer;
-    border-radius: 23px;
-    color: #fff;
-    padding: 0 20px;
-    border: none;
-    display: flex;
-    width: fit-content;
-}
-
-
-#about-button, #projects-button{
-  display: flex;
-  justify-content: right;
-  margin: 5px 15px 5px 15px;
-  border-radius: 18px;
-  border: none;
-  padding: 9px 25px 9px 25px;
-  background-color: #282727;
-  color: #ffffff;
-  font-size: large;
-  font-family: Montserrat;
-  cursor: pointer;
-}
-
-#buttons-and-github{
-  display: flex;
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  padding: 20px;
+  border-radius: 20px;
 }
