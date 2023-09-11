@@ -5,29 +5,29 @@
 @use "../overflows";
 @use "../variables";
 
-
 #header {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100%;  
   z-index: 200;
-  &:before {
+
+  &::before {
     content: "";
     position: absolute;
     top: -300px;
     left: 0;
     width: 100%;
-    height: 300px;
+    height: 240px;
     background: #191919;
     animation: slideDown 3.5s forwards;
-  }
+  } 
 }
 
 #headerb {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 240px;
   overflow: hidden;
 }
 
@@ -48,7 +48,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to top, #191919 1%, rgba(235, 225, 225, 0));
+  background: linear-gradient(to top, rgb(0, 0, 0) 1%, rgba(235, 225, 225, 0));
 }
 
 #video-background {
@@ -60,17 +60,14 @@
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  background: linear-gradient(to bottom, #191919 1%, rgba(235, 225, 225, 0));
-}
+  background: linear-gradient(to bottom, rgb(0, 0, 0) 1%, rgba(235, 225, 225, 0));
+ }
 
-#content {
+ #content {
   z-index: 1;
   text-align: center;
   color: white;
-}
-
-.footer-link {
-  margin: 50px;
+  margin-top: 120px;
 }
 
 #header #header-lower #navbar {
@@ -78,90 +75,88 @@
   flex-basis: 0;
   flex-grow: 1;
   justify-content: flex-end;
+
   .navitem {
     margin-right: 10px;
     font: 300 20px "Montserrat", sans-serif;
-  }
-  @media screen and (min-width: 800px) {
-    .navitem {
-      font: 300 20px "Montserrat", sans-serif;
     }
+  
+    .navitem-select a {
+      cursor: default;
+      color: #c48bfc;
+      }
   }
-  .navitem-select a {
-    cursor: default;
-    color: #c48bfc;
-  }
+
+  @media screen and (min-width: 800px) {
+    #header #header-lower #navbar{
+      .navitem {
+        font: 300 20px "Montserrat", sans-serif;
+      }
+    }
+    }
+  
   @media screen and (min-width: 1200px) {
-    display: flex;
+    #header #header-lower #navbar {
+    display: flex;  
     margin-top: 70px;
-  }
-}
-
-#header #header-lower #img-container {
-  flex-basis: 0;
-  flex-grow: 1;
-  img {
-    height: 50px;
-  }
-  @media screen and (min-width: 800px) {
-    img {
-      height: 70px;
     }
-  }
-  @media screen and (min-width: 1200px) {
-    img {
-      height: 80px;
-      margin-top: 50px;
     }
-  }
-}
+  
+    #header #header-lower #img-container {
+      flex-basis: 0;
+      flex-grow: 1;
 
-#character-orpheus,
-#character-eurydice {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  img {
-    height: 50vw;
-    border-bottom: solid #4d4d4d 5px;
-    border-radius: 0 0 5px 5px;
-  }
-  @media screen and (min-width: 500px) {
-    flex-direction: row-reverse;
-  }
-}
+      img {
+        height: 50px;
+      }
+    }
 
-.custom-button {
-  background-color: #111111;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 10px;
-}
+    @media screen and (min-width: 800px) {
+      #header #header-lower #img-container{
+        img {
+          height: 70px;
+        }
+      }
+    }
 
-#button-section {
-  text-align: center;
-  margin-top: 20px;
-}
+    @media screen and (min-width: 1200px) {
+      #header #header-lower #img-container{
+        img {
+          height: 80px;
+          margin-top: 50px; 
+        }
+      }
+    }
 
-#button-container {
-  display: inline-block;
-  margin: 0 0.1px;
-}
+    .custom-button {
+      background-color: #111111;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 10px;
+    }
 
+    #button-section {
+      text-align: center;
+      margin-top: 10px;
+    }
+    #button-container {
+      display: inline-block;
+      margin: 0 0.1px;
+    }
+
+    /* For GALLERY */
 #gallery {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
-
 #gallery-item {
   box-sizing: border-box;
   width: 250px;
@@ -170,69 +165,71 @@
   transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
   border: 4px solid transparent;
   border-radius: 25px;
-  opacity: 0.5;
+  opacity: 0.5; 
+
   img {
     width: 100%;
     height: 100%;
     border-radius: 22px;
   }
+
   &:hover {
     transform: translateY(-10px);
     border: 4px solid #4a51ff;
     border-radius: 25px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
-    opacity: 1;
-    &:not(:hover) {
-      transition-delay: 0.1s;
-    }
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 1); /* Gölge efekti */
+    opacity: 1; 
+  }
+
+  &:not(:hover) {
+    transition-delay: 0.1s;   /* Bunun degerleri ile oyna ve güzelliği gör*/
   }
 }
 
+/* For ORPHEUS TEXT*/
 #orpheustext {
   width: 100%;
-  height: 100vh;
-  background-image: url("/assets/media/projects/orpheus/textorpheusbackground.jpg");
+  height: 100vh; /* Sayfanın yüksekliği kadar */  /* normalde degeri 100vh*/
+   /*background-image: url("assets/media/projects/orpheus/textorpheusbackground.jpg") /*url('assets/media/projects/orpheus/Group 78.jpg')*/;
   background-size: cover;
   background-position: center;
   text-align: justify;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  &.fade-in-bg {
-    animation: fadeInBackground 0.5s ease;
-  }
 }
 
 @keyframes fadeInBackground {
   from {
-    opacity: 0;
+    opacity: 0; 
   }
   to {
-    opacity: 1;
+    opacity: 1; 
   }
 }
 
 #the-orpheus-series {
   padding: 300px 500px 300px 100px;
-  color: white;
-  h1,
-  p {
-    text-align: justify;
-    margin-bottom: 20px;
-  }
-  h1 {
+  color: white; 
+
+  h1{
     margin-bottom: 50px;
   }
+
+  h1, p {
+  text-align: justify;
+  margin-bottom: 20px;
+}
 }
 
-#disc-to-orpheus {
+/* For DISCOVER THE ORPHEUS */
+#disc-to-orpheus{
   width: 100%;
   background-image: url("/assets/media/projects/orpheus/disc-to-orpheus.webp");
   background-size: cover;
   margin-top: 80px;
   margin-bottom: 80px;
 }
-
 #dto-container {
   padding: 100px 50px;
   display: flex;
@@ -240,155 +237,186 @@
   justify-content: center;
   margin-bottom: 150px;
 }
-
-#action {
+#action{
   width: 400px;
-  height: 600px;
+  height: 600px;  /* p etiketinin font size degeri 20 olunca height 630 ideal*/
   border-radius: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin: 0 50px 70px 50px;
+  margin: 0 50px  70px 50px; 
+  transition: transform 0.1s;
+
   &:hover {
     transform: scale(1.05);
   }
-  #top-content {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    img {
-      border-radius: 25px;
-      border: 2px solid white;
-    }
-  }
-  #bottom-content {
-    flex: 1;
-    padding: px;
-    p {
-      margin: 0;
-      margin-top: 20px;
-      margin-left: 15px;
-      margin-right: 5px;
-    }
-    h1 {
-      margin-left: 15px;
-    }
+}
+
+#top-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  img{
+    border-radius: 25px;
+    border: 2px solid white;
   }
 }
 
-#meet-the-char h1 {
-  margin-top: 100px;
-  text-align: center;
+#bottom-content {
+  flex: 1;
+  padding: px;
+
+  p {
+    margin: 0;
+    margin-top: 20px; 
+    margin-left: 15px; 
+    margin-right: 5px;
+  }
+
+  h1{
+    margin-left: 15px;
+  }
+}
+
+/* For MEET THE CHARACTERS */
+#meet-the-char{
+  h1{
+    margin-top: 100px;
+    text-align: center;
+  }
 }
 
 #characters-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; 
   margin-top: 90px;
   margin-bottom: 150px;
-  .characters {
-    margin: 70px 100px;
-    backdrop-filter: blur(0.5px);
-    -webkit-backdrop-filter: blur(5.5px);
-    background: rgb(0, 0, 0);
-    border: 1px solid rgba(255, 255, 255, 0.01);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    background: rgba(122, 122, 122, 0.137);
-    border: 1px solid rgba(255, 255, 255, 0.34);
-    img {
-      width: 450px;
-      height: auto;
-    }
+}
+
+.characters {
+  margin: 70px 100px; 
+  backdrop-filter: blur(0.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  background: rgb(0, 0, 0);
+  border: 1px solid rgba(255,255,255,0.01);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  background: rgba(122, 122, 122, 0.137);
+  border: 1px solid rgba(255,255,255,0.34);
+
+  img {
+    width: 450px;
+    height: auto;
   }
 }
 
+/* For ORPHEUS SOCIAL MEDIA */
 #video-section {
   width: 100%;
-  h1 {
+
+  h1{
     margin-top: 30px;
     text-align: center;
   }
-  #orpheus-videos {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    margin: 50px 0 150px 0;
-  }
 }
 
-#community-content {
+#orpheus-videos{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 50px 0 150px 0;
+}
+
+/* For ORPHEUS COMMUNITY */
+#community-section{
+  /* Ilginc bir sekilde propertyler burada calismiyor, oyuzden simdilik style olarak htmlde tutulmakta */
+}
+
+#community-content{
   padding: 200px 820px 200px 150px;
-  h1 {
+  h1{
     margin-bottom: 30px;
   }
-  #community-buttons {
-    margin-top: 30px;
-  }
-  #learn-more,
-  #dc {
-    display: inline-block;
-    vertical-align: top;
-    transition: transform 0.2s;
-  }
-  #learn-more:hover,
-  #dc:hover {
+}
+#community-buttons {
+  margin-top: 30px;
+}
+
+#learn-more,
+#dc {
+  display: inline-block;
+  vertical-align: top; 
+  transition: transform 0.2s;
+  
+  &:hover{
     transform: scale(1.05);
   }
-  #learn-more {
-    padding: 23px;
-    cursor: pointer;
-    background: #282727;
-    border-radius: 23px;
-    color: #fff;
-    border: none;
-    font: 350 20px "Montserrat", sans-serif;
-    margin-right: 20px;
-    transition: transform 0.2s;
-  }
-  #dc {
-    width: 75px;
-    height: 70px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    background-color: #244cb4;
-    padding: 10px 20px;
-  }
 }
 
+#learn-more {
+  padding: 23px;
+  cursor: pointer;
+  background: #282727;
+  border-radius: 23px;
+  color: #fff;
+  border: none;
+  font: 350 20px "Montserrat", sans-serif;
+  margin-right: 20px;
+  transition: transform 0.2s;
+}
+
+#dc {
+  width: 75px;
+  height: 70px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  background-color: #244cb4;
+  padding: 10px 20px;
+}
+
+/* For FAQ */
 #faqsection {
-  background-image: url('/assets/media/projects/orpheus/world.webp');
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 100%;
-  #faq {
-    display: inline-block;
-    margin: 150px 150px 150px 80px;
-    h1 {
-      margin-bottom: 20px;
-      font-size: 35px;
-    }
-  }
-}
+  /* Ilginc bir sekilde background burada calismiyor, oyuzden simdilik style olarak htmlde tutulmakta */ 
+ /*  background-image: url('assets/media/projects/orpheus/world.webp'); */
+   background-size: cover;
+   background-position: center;
+   width: 100%;
+   height: 100%;
+ }
+ #faq{
+   display: inline-block;
+   margin: 150px 150px 150px 80px;
 
+   h1{
+    margin-bottom: 20px;
+    font-size: 35px;
+  }
+ }
+
+ /* For ABOUT LODOM */
 #about-lodom {
   background-color: white;
   padding: 50px 100px 50px 100px;
   margin-bottom: 200px;
-  #lodom-text p,
-  #lodom-text h1 {
+}
+
+#lodom-text {
+  p, h1 {
     color: black;
   }
-  #lodom-text h1 {
+  h1{
     text-align: center;
-    margin-bottom: 50px;
+  margin-bottom: 50px;
   }
 }
+
+
+

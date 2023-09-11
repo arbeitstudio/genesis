@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap");
+@keyframes pulsate {
+  100% {
+    text-shadow: 5px 5px 23px;
+  }
+  0% {
+    text-shadow: 5px 5px 17px;
+  }
+}
+@keyframes rotate-gradient {
+  from {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0 50%;
+  }
+}
+@keyframes wheel {
+  to {
+    opacity: 0;
+    top: 10px;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hue-rotate {
+  from {
+    filter: hue-rotate(0);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+#offices {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 5vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content min-content min-content 1fr;
+  grid-template-areas: "title" "desc" "nav" "map";
+  margin-right: 70px;
+}
+#offices h1 {
+  grid-area: title;
+  font-size: 32px;
+  margin: 0;
+}
+#offices p {
+  grid-area: desc;
+  margin: 0;
+}
+#offices nav {
+  grid-area: nav;
+}
+#offices #map {
+  grid-area: map;
+  border: none;
+  min-height: 50vh;
+  width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  #offices {
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas: "title nav" "desc map";
+  }
+  #offices h1 {
+    margin: 0 0 32px 0;
+  }
+}
+#map {
+  margin-right: 6 0px;
+}/*# sourceMappingURL=contact.css.map */

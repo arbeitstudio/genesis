@@ -15,7 +15,6 @@
   position: absolute;
   top: 0;
   left: 0;
-
   width: 100%;
   z-index: 100;
   background: rgba(0, 0, 0, 0);
@@ -25,11 +24,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
-    padding: math.div(variables.$header-upper-padding, 2) variables.$header-upper-padding;
-
-    font: 400 15px fonts.$font-stack;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 15px 30px;
+    font: 400 15px "Montserrat", sans-serif;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25); 
 
     a {
       color: white;
@@ -54,7 +51,7 @@
     }
 
     @include overflows.mx_width1200 {
-      padding: variables.$site-lr-padding * 0.3 variables.$site-lr-padding !important;
+      padding: 20px 80px !important; /*variables.$site-lr-padding * 0.3 variables.$site-lr-padding !important;*/
     }
 
     #img-container {
@@ -62,7 +59,7 @@
       flex-grow: 1;
 
       img {
-        height: 50px;
+        height: 20px;
 
         @include overflows.mx_width800 {
           height: 70px;

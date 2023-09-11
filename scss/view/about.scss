@@ -46,10 +46,6 @@ $px_text: 16px;
   background: colors.$cl-dark400;
 }
 
-#sec-join-us {
-  background: -webkit-linear-gradient(to top, #c31432, #240b36);
-  background: linear-gradient(to top, #c31432, #240b36);
-}
 
 #sec-legion {
   background: #000000;
@@ -59,6 +55,19 @@ $px_text: 16px;
   }
 
   .hr-under-leader {
-    border: 1px #444 solid;
+    border: 1px #111 solid;
+  }
+}
+#sec-boardmember {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#bordmbr-card{
+  flex: 1;
+  max-width: 100%;
+
+  h1,h2{
+    font-size: 16px;
   }
 }
