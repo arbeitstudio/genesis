@@ -50,6 +50,15 @@ function applyCssToChildren(parent, cssClass) {
     });
 }
 
+function preprocessTargets() {
+    const targets = document.querySelectorAll(".anim-gallery-staggered-appear");
+    targets.forEach(parent => {
+        applyDelayToChildren(parent, 0.1);
+    });
+}
+
+preprocessTargets();
+const query = ".anim-slide-down-appear,.anim-slide-right-appear,.anim-slide-up-appear,.anim-appear,.anim-slide-in-place-right,.anim-gallery-staggered-appear,.anim-slide-left-appear";
 let targets = document.querySelectorAll(query);
 targets.forEach(target => {
     observer.observe(target);
