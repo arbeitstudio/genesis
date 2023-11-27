@@ -34,7 +34,15 @@ const observer = new IntersectionObserver(entries => {
     });
 });
 
-const query = ".anim-slide-down-appear,.anim-slide-right-appear,.anim-slide-up-appear,.anim-appear,.anim-slide-in-place-right";
+function applyDelayToChildren(parent, multiplier) {
+    const children = Array.from(parent.children);
+    let i = 1;
+    children.forEach(child => {
+        child.style.transitionDelay = `${i * multiplier}s`;
+        i++;
+    });
+}
+
 let targets = document.querySelectorAll(query);
 targets.forEach(target => {
     observer.observe(target);
