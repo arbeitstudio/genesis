@@ -1,9 +1,7 @@
 //
-//    Anticverse Webraider
+//    Arbeit Studio
 //
-//    Maintainer: Ferit Yiğit BALABAN <balaban.ferityigit@anticverse.com>
-@use "variables";
-
+//    Maintainer: Ferit Yiğit BALABAN <fyb@fybx.dev>
 $veryfast: 1s;
 $fast: 1.5s;
 $normal: 2s;
@@ -44,4 +42,14 @@ $veryslow: 3s;
 
 .slide-right-appear {
   transform: translateX(0);
+}
+
+.anim-slide-in-place-right {
+  transform: scaleX(0);
+  transition: transform ease-out;
+  transition-duration: $normal;
+}
+
+.slide-in-place-right {
+  transform: scaleX(1);
 }
