@@ -53,3 +53,15 @@ $veryslow: 3s;
 .slide-in-place-right {
   transform: scaleX(1);
 }
+
+.anim-gallery-staggered-appear {
+  > * {
+    opacity: 0;
+    transition: opacity ease-out;
+    transition-duration: $normal;
+  }
+}
+
+.staggered-appear {
+  opacity: 1;
+}

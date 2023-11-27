@@ -26,6 +26,9 @@ const observer = new IntersectionObserver(entries => {
                 entry.target.classList.add("slide-down-appear");
             } else if (entry.target.classList.contains("anim-slide-in-place-right")) {
                 entry.target.classList.add("slide-in-place-right");
+            } else if(entry.target.classList.contains("anim-gallery-staggered-appear")) {
+                applyCssToChildren(entry, "staggered-appear");
+            } else if (entry.target.classList.contains("anim-slide-left-appear")) {
             }
         }
     });
