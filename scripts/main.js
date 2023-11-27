@@ -1,10 +1,10 @@
 /*
- *      Anticverse Webraider © 2023
+ *      Arbeit Studio © 2023
  *      The Genesis Framework
- *      https://github.com/anticverse/genesis.git (anticverse/genesis)
- *      Maintainer: Ferit Yiğit BALABAN <balaban.ferityigit@anticverse.com>
+ *      https://github.com/arbeitstudio/genesis.git (arbeitstudio/genesis)
+ *      Maintainer: Ferit Yiğit BALABAN <fyb@fybx.dev>
  *
- *      genesis/js/main.js
+ *      genesis/scripts/main.js
  */
 
 const menuIcon = document.querySelector(".menu-icon");

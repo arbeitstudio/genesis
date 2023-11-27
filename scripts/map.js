@@ -1,3 +1,12 @@
+/*
+ *      Arbeit Studio © 2023
+ *      The Genesis Framework
+ *      https://github.com/arbeitstudio/genesis.git (arbeitstudio/genesis)
+ *      Maintainer: Ferit Yiğit BALABAN <fyb@fybx.dev>
+ * 
+ *      genesis/scripts/map.js
+ */
+
 let map;
 let previousButton = document.getElementsByClassName("on")[0];
 
