@@ -43,6 +43,13 @@ function applyDelayToChildren(parent, multiplier) {
     });
 }
 
+function applyCssToChildren(parent, cssClass) {
+    const children = Array.from(parent.target.children);
+    children.forEach(child => {
+        child.classList.add(cssClass);
+    });
+}
+
 let targets = document.querySelectorAll(query);
 targets.forEach(target => {
     observer.observe(target);
