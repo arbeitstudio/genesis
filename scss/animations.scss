@@ -65,3 +65,15 @@ $veryslow: 3s;
 .staggered-appear {
   opacity: 1;
 }
+
+.anim-slide-left-appear {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: opacity ease-out, transform ease-out;
+  transition-duration: $normal;
+}
+
+.slide-left-appear {
+  transform: translateX(0);
+  opacity: 1;
+}

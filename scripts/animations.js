@@ -29,6 +29,7 @@ const observer = new IntersectionObserver(entries => {
             } else if(entry.target.classList.contains("anim-gallery-staggered-appear")) {
                 applyCssToChildren(entry, "staggered-appear");
             } else if (entry.target.classList.contains("anim-slide-left-appear")) {
+                entry.target.classList.add("slide-left-appear");
             }
         }
     });
