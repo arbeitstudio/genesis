@@ -58,6 +58,7 @@ function preprocessTargets() {
     });
 }
 
+console.log("Close the world, .txen eht nepO :: genesis by arbeit studio");
 preprocessTargets();
 const query = ".anim-slide-down-appear,.anim-slide-right-appear,.anim-slide-up-appear,.anim-appear,.anim-slide-in-place-right,.anim-gallery-staggered-appear,.anim-slide-left-appear";
 let targets = document.querySelectorAll(query);
