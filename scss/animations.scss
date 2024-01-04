@@ -2,6 +2,8 @@
 //    Arbeit Studio
 //
 //    Maintainer: Ferit Yiğit BALABAN <fyb@fybx.dev>
+@use "keyframes";
+
 $veryfast: 1s;
 $fast: 1.5s;
 $normal: 2s;
@@ -76,4 +78,12 @@ $veryslow: 3s;
 .slide-left-appear {
   transform: translateX(0);
   opacity: 1;
+}
+
+.glow-opacity {
+  animation: opacity-change $normal infinite;
+}
+
+.glow-saturation {
+  animation: saturation-change $normal infinite;
 }

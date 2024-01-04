@@ -53,3 +53,31 @@
     filter: hue-rotate(360deg);
   }
 }
+
+@keyframes opacity-change {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes saturation-change {
+  0% {
+    filter: saturate(1);
+  }
+
+  50% {
+    filter: saturate(0.55);
+  }
+
+  100% {
+    filter: saturate(1);
+  }
+}
