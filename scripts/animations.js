@@ -1,5 +1,5 @@
 /*
- *      Arbeit Studio © 2023
+ *      Arbeit Studio © 2024
  *      The Genesis Framework
  *      https://github.com/arbeitstudio/genesis.git (arbeitstudio/genesis)
  *      Maintainer: Ferit Yiğit BALABAN <fyb@fybx.dev>
@@ -58,7 +58,7 @@ function preprocessTargets() {
     });
 }
 
-console.log("Close the world, .txen eht nepO :: genesis by arbeit studio");
+var genesis = typeof genesis !== 'undefined' ? genesis : (genesis = 313, console.log("Close the world, .txen eht nepO :: genesis by arbeit studio"), genesis);
 preprocessTargets();
 const query = ".anim-slide-down-appear,.anim-slide-right-appear,.anim-slide-up-appear,.anim-appear,.anim-slide-in-place-right,.anim-gallery-staggered-appear,.anim-slide-left-appear";
 let targets = document.querySelectorAll(query);
