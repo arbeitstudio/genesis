@@ -6,7 +6,7 @@
 #       wip scaffolding component
 
 # Section - static variables
-commands=("sass" "realpath" "uglifyjs" "dirname")
+commands=("sass" "realpath" "uglifyjs" "dirname" "realpath" "basename")
 
 # Section - required functions
 checkDependencies() {
@@ -40,9 +40,9 @@ fi
 
 # Section - custom task definitions
 task_minimize() {
-    for file in ../scripts/*.js; do
+    for file in scripts/*.js; do
         base_name=$(basename "$file" .js)
-        uglifyjs "$file" --compress --mangle --output "../js/$base_name.js"
+        uglifyjs "$file" --compress --mangle --output "js/$base_name.js"
     done
 }
 
