@@ -2,6 +2,14 @@
 
 $card-radius: 24px;
 
+.gallery-shiny {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 4vh;
+    column-gap: 6vw;
+}
+
 .card-shiny-tiltable {
     border-radius: $card-radius;
     box-sizing: border-box;
@@ -19,7 +27,7 @@ $card-radius: 24px;
     max-height: 360px;
     min-height: 320px;
     border: 2px solid transparent;
-    background: linear-gradient(71deg, #080509, #1a171c, #080509);
+    background: #000000;
     background-clip: padding-box;
 
     border-radius: $card-radius;
