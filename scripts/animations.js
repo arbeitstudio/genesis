@@ -7,12 +7,6 @@
  *      genesis/scripts/animations.js
  */
 
-// List of available animations:
-// anim-slide-down-appear
-// anim-slide-right-appear
-// anim-slide-up-appear
-// anim-appear
-
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
