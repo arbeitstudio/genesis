@@ -22,4 +22,13 @@ function getSections() {
     return sectionized;
 }
 
+function observeSections(amount) { 
+    getSections().forEach(section => {
+        if (window.scrollY >= section.offsetTop + amount ||
+            (section.hasAttribute("data-sectionized-last") && window.scrollY >= section.offsetTop) )
+            receivers[section.id]();
+        console.log(section.offsetTop + amount);
+    });
+}
+
 var genesis = typeof genesis !== 'undefined' ? genesis : (genesis = 313, console.log("Close the world, .txen eht nepO :: genesis by arbeit studio"), genesis);
