@@ -35,4 +35,14 @@ export function letMeKnow(sectionId, callback) {
     receivers[sectionId] = callback;
 }
 
+export function configureSectionized(threshold = 0.4) {
+    const amount = threshold * window.innerHeight;
+    console.log(amount);
+    window.addEventListener("scroll", () => {
+        observeSections(amount);
+    });
+}
+
+configureSectionized();
+Element.prototype.letMeKnow = letMeKnow;
 var genesis = typeof genesis !== 'undefined' ? genesis : (genesis = 313, console.log("Close the world, .txen eht nepO :: genesis by arbeit studio"), genesis);
