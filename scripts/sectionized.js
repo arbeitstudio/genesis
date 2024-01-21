@@ -6,18 +6,16 @@
  *
  *      genesis/scripts/sectionized.js
  */
-let warden;
 const receivers = {};
 
 function getSections() {
-    let sectionized = Array.from(document.querySelectorAll("[data-sectionized]"));
+    const sectionized = Array.from(document.querySelectorAll("[data-sectionized]"));
 
-    for (let i = 0; i < sectionized.length; i++) {
-        if (!sectionized[i].hasAttribute("id")) {
-            console.error("Sectionized element must have an id attribute");
-            return;
+    sectionized.forEach(section => {
+        if (!section.hasAttribute("id")) {
+            console.error("Sectionized elements must have an id attribute", section);
         }
-    }
+    });
 
     return sectionized;
 }
@@ -27,7 +25,6 @@ function observeSections(amount) {
         if (window.scrollY >= section.offsetTop + amount ||
             (section.hasAttribute("data-sectionized-last") && window.scrollY >= section.offsetTop) )
             receivers[section.id]();
-        console.log(section.offsetTop + amount);
     });
 }
 
@@ -37,7 +34,6 @@ export function letMeKnow(sectionId, callback) {
 
 export function configureSectionized(threshold = 0.4) {
     const amount = threshold * window.innerHeight;
-    console.log(amount);
     window.addEventListener("scroll", () => {
         observeSections(amount);
     });
