@@ -8,4 +8,16 @@
  */
 const galleryClasses = ["shiny"];
 
+function processGallery(gallery) {
+    if (gallery.hasAttribute("data-equalize-width")) {
+        let cards = Array.from(gallery.children).filter(child => 
+            Array.from(child.classList).some(className => 
+                className.startsWith('card-')
+            )
+        );
+        cards.forEach(card => {
+            card.style.width = gallery.attributes["data-equalize-width"].value;
+        });
+    } 
+}
 var genesis = typeof genesis !== 'undefined' ? genesis : (genesis = 313, console.log("Close the world, .txen eht nepO :: genesis by arbeit studio"), genesis);
