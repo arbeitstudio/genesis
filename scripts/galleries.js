@@ -20,4 +20,19 @@ function processGallery(gallery) {
         });
     } 
 }
+
+function findGalleries() {
+    const galleries = [];
+    galleryClasses.forEach(galleryClass => {
+        [...document.getElementsByClassName("gallery-" + galleryClass)].forEach(gallery => {
+            galleries.push(gallery);
+        })
+    });
+    galleries.forEach(gallery => {
+        processGallery(gallery);
+        console.log(gallery);
+    });
+}
+
+findGalleries();
 var genesis = typeof genesis !== 'undefined' ? genesis : (genesis = 313, console.log("Close the world, .txen eht nepO :: genesis by arbeit studio"), genesis);
