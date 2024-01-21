@@ -6,7 +6,7 @@
 #       wip scaffolding component
 
 # Section - static variables
-commands=("sass" "realpath" "uglifyjs" "dirname" "realpath" "basename")
+commands=("sass" "realpath" "uglifyjs" "dirname" "realpath" "basename" "git")
 
 # Section - required functions
 checkDependencies() {
@@ -50,6 +50,12 @@ task_compile_scss() {
     sass --no-source-map --style=compressed scss:css
 }
 
+task_auto_commit() {
+    git add js/*
+    git add css/*
+    git commit -m "scaffolding-build: auto commit"
+}
+
 # Section - task execution
 if [ $# -eq 0 ]; then
     task_minimize
@@ -59,4 +65,11 @@ fi
 # Section - continuous execution
 if [ "$1" == "--continuous" ] || [ "$1" == "-c" ]; then
     echo "Continuous build mode under development."
+fi
+
+# Section - custom task execution
+if [ "$1" == "-ac" ]; then
+    task_minimize
+    task_compile_scss
+    task_auto_commit
 fi
