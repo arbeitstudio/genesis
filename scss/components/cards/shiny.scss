@@ -23,24 +23,41 @@ $card-radius: 24px;
     padding: math.div($card-radius, 2);
     position: relative;
 
-    max-width: 300px;
-    max-height: 360px;
-    min-height: 320px;
+    width: clamp(240px, 50vw, 300px);
+    height: clamp(320px, 50vh, 360px);
     border: 2px solid transparent;
     background: #000000;
     background-clip: padding-box;
 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    grid-template-rows: 1fr max-content; 
+    gap: 1.5em 0px; 
+    grid-template-areas: 
+      "image"
+      "content"; 
+
     border-radius: $card-radius;
 
-    img {
-        object-fit: cover;
+    picture {
+        grid-area: image;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         border-radius: math.div($card-radius, 2);
-        width: 100%;
-        max-height: 239px;
-        margin: 0 0 24px 0;
+
+        img {
+            object-fit: contain;
+            
+            width: 100%;
+            max-height: 220px;
+            
+        }
     }
 
     div {
+        grid-area: content;
         display: flex;
         flex-direction: column;
         align-items: center;
