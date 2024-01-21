@@ -20,11 +20,14 @@ function getSections() {
     return sectionized;
 }
 
-function observeSections(amount) { 
-    getSections().forEach(section => {
-        if (window.scrollY >= section.offsetTop + amount ||
-            (section.hasAttribute("data-sectionized-last") && window.scrollY >= section.offsetTop) )
-            receivers[section.id]();
+function observeSections() {
+    sections.forEach(section => {
+        if (window.scrollY + window.innerHeight >= section.offsetTop + ignoreAmount) {
+            const callback = receivers[section.id];
+            if (typeof callback === "function") {
+                callback();
+            }
+        }
     });
 }
 
