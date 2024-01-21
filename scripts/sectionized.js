@@ -33,12 +33,13 @@ export function letMeKnow(sectionId, callback) {
 }
 
 export function configureSectionized(threshold = 0.4) {
-    const amount = threshold * window.innerHeight;
+    ignoreAmount = threshold * window.innerHeight;
     window.addEventListener("scroll", () => {
-        observeSections(amount);
+        observeSections();
     });
 }
 
+let ignoreAmount;
 const sections = getSections();
 configureSectionized();
 Element.prototype.letMeKnow = letMeKnow;
