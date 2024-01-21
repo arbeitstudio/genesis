@@ -39,6 +39,7 @@ export function configureSectionized(threshold = 0.4) {
     });
 }
 
+const sections = getSections();
 configureSectionized();
 Element.prototype.letMeKnow = letMeKnow;
 var genesis = typeof genesis !== 'undefined' ? genesis : (genesis = 313, console.log("Close the world, .txen eht nepO :: genesis by arbeit studio"), genesis);
