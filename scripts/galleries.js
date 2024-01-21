@@ -30,7 +30,6 @@ function findGalleries() {
     });
     galleries.forEach(gallery => {
         processGallery(gallery);
-        console.log(gallery);
     });
 }
 
