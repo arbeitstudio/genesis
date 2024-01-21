@@ -1,6 +1,9 @@
 .trait-gradient {
     background: linear-gradient(to right, #ffaeae, #8bffbf);
-    background-clip: text;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
 }
