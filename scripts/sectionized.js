@@ -28,8 +28,10 @@ function observeSections(amount) {
     });
 }
 
-export function letMeKnow(sectionId, callback) {
-    receivers[sectionId] = callback;
+export function letMeKnow(sectionId, callback, ...args) {
+    receivers[sectionId] = function() {
+        callback(...args);
+    };
 }
 
 export function configureSectionized(threshold = 0.4) {
