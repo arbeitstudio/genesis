@@ -7,26 +7,34 @@
  *      genesis/scripts/animations.js
  */
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            if (entry.target.classList.contains("anim-slide-right-appear")) {
-                entry.target.classList.add("slide-right-appear");
-            } else if (entry.target.classList.contains("anim-slide-up-appear")) {
-                entry.target.classList.add("slide-up-appear");
-            } else if (entry.target.classList.contains("anim-appear")) {
-                entry.target.classList.add("appear");
-            } else if (entry.target.classList.contains("anim-slide-down-appear")) {
-                entry.target.classList.add("slide-down-appear");
-            } else if (entry.target.classList.contains("anim-slide-in-place-right")) {
-                entry.target.classList.add("slide-in-place-right");
-            } else if(entry.target.classList.contains("anim-gallery-staggered-appear")) {
-                applyCssToChildren(entry, "staggered-appear");
-            } else if (entry.target.classList.contains("anim-slide-left-appear")) {
-                entry.target.classList.add("slide-left-appear");
-            }
-        }
+const animationCN = [
+    "anim-slide-right-appear",
+    "anim-slide-up-appear",
+    "anim-appear",
+    "anim-slide-down-appear",
+    "anim-slide-in-place-right",
+    "anim-gallery-staggered-appear",
+    "anim-slide-left-appear"
+];
+
+function buildQuery() {
+    let query = "";
+    animationCN.forEach((an) => {
+        query += `.${an},`;
     });
+    return query;
+}
+
+function addMatchingFunction(e) {
+    if (e.isIntersecting)
+        animationCN.forEach((an) => {
+            if (e.target.classList.contains(an))
+                e.target.classList.add(an.replace("anim-", ""));
+        });
+}
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => addMatchingFunction(entry));
 });
 
 function applyDelayToChildren(parent, multiplier) {
@@ -54,7 +62,7 @@ function preprocessTargets() {
 
 var genesis = typeof genesis !== 'undefined' ? genesis : (genesis = 313, console.log("Close the world, .txen eht nepO :: genesis by arbeit studio"), genesis);
 preprocessTargets();
-const query = ".anim-slide-down-appear,.anim-slide-right-appear,.anim-slide-up-appear,.anim-appear,.anim-slide-in-place-right,.anim-gallery-staggered-appear,.anim-slide-left-appear";
+const query = buildQuery();
 let targets = document.querySelectorAll(query);
 targets.forEach(target => {
     observer.observe(target);
