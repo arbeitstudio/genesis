@@ -10,15 +10,16 @@ const galleryClasses = ["shiny"];
 
 function processGallery(gallery) {
     if (gallery.hasAttribute("data-equalize-width")) {
-        let cards = Array.from(gallery.children).filter(child => 
-            Array.from(child.classList).some(className => 
-                className.startsWith('card-')
-            )
-        );
+        let cards = Array.from(gallery.querySelectorAll("*")).filter(element => {
+            return Array.from(element.classList).some(className => {
+                return className.startsWith("card-");
+            });
+        });
+        
         cards.forEach(card => {
             card.style.width = gallery.attributes["data-equalize-width"].value;
         });
-    } 
+    }
 }
 
 function findGalleries() {
