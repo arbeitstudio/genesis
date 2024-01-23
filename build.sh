@@ -42,11 +42,17 @@ fi
 task_minimize() {
     for file in scripts/*.js; do
         base_name=$(basename "$file" .js)
-        uglifyjs "$file" --compress --mangle --output "scripts/$base_name.ugly.js"
+        uglifyjs "$file" --compress --mangle --output "scripts/$base_name.min.js"
+
+        if [[ "$base_name" == "sectionized" ]]; then
+            mv "scripts/$base_name.min.js" js/
+            continue
+        fi
+
         google-closure-compiler --compilation_level ADVANCED \
-            --js "scripts/$base_name.ugly.js" \
+            --js "scripts/$base_name.min.js" \
             --js_output_file "js/$base_name.min.js"
-        rm "scripts/$base_name.ugly.js"
+        rm "scripts/$base_name.min.js"
     done
 }
 
