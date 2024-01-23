@@ -6,7 +6,7 @@
 #       wip scaffolding component
 
 # Section - static variables
-commands=("sass" "realpath" "uglifyjs" "dirname" "realpath" "basename" "git")
+commands=("sass" "google-closure-compiler" "realpath" "uglifyjs" "dirname" "realpath" "basename" "git")
 
 # Section - required functions
 checkDependencies() {
@@ -42,7 +42,11 @@ fi
 task_minimize() {
     for file in scripts/*.js; do
         base_name=$(basename "$file" .js)
-        uglifyjs "$file" --compress --mangle --output "js/$base_name.js"
+        uglifyjs "$file" --compress --mangle --output "scripts/$base_name.ugly.js"
+        google-closure-compiler --compilation_level ADVANCED \
+            --js "scripts/$base_name.ugly.js" \
+            --js_output_file "js/$base_name.min.js"
+        rm "scripts/$base_name.ugly.js"
     done
 }
 
