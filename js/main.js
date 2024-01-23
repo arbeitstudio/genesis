@@ -1,1 +1,0 @@
-const menuIcon=document.querySelector(".menu-icon"),menu=document.querySelector("#menu"),menuNavitems=document.querySelectorAll(".menu-navitem");menuIcon.addEventListener("click",()=>{menu.classList.toggle("active"),document.body.classList.toggle("state-menu_open"),menuNavitems.forEach(function(e){e.classList.toggle("visible")})});
