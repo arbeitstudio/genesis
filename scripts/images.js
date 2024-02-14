@@ -22,11 +22,11 @@ function insertSitewideStyle() {
 
     imageContainer = document.createElement('div');
     imageContainer.id = imageContainerId;
-    imageContainer.setAttribute("data-state", "0");
+    imageContainer.style.display = "none";
     imageContainer.appendChild(imageContainerBackdrop);
 
     var style = document.createElement('style');
-    style.textContent = `#${imageContainerId}{position:fixed;top:10%;left:10%;width:80%;height:80%;display:flex;justify-content:center;align-items:center}#${imageContainerId}[data-state="0"]{display:none}#${imageContainerBackdropId}{content:"";z-index:-1;position:fixed;top:0;left:0;right:0;bottom:0;backdrop-filter:blur(4px) brightness(0.25)}#${imageContainerId} img{max-width:100%;max-height:100%;height:auto;width:auto}`;
+    style.textContent = `#${imageContainerId}{position:fixed;top:10%;left:10%;width:80%;height:80%;display:flex;justify-content:center;align-items:center}#${imageContainerBackdropId}{content:"";z-index:-1;position:fixed;top:0;left:0;right:0;bottom:0;backdrop-filter:blur(4px) brightness(0.25)}#${imageContainerId} img{max-width:100%;max-height:100%;height:auto;width:auto}`;
 
     document.body.appendChild(imageContainer);
     document.head.appendChild(style);
@@ -40,7 +40,7 @@ function hijackSitewideControl() {
 }
 
 function templateHideImage() {
-    imageContainer.setAttribute("data-state", "0");
+    imageContainer.style.display = "none";
     imageContainer.removeChild(imageContainer.lastChild);
     document.body.style.overflow = "auto";
     state = 0;
@@ -50,7 +50,7 @@ function templateShowImage(imageElement) {
     var imageElementStripped = document.createElement("img");
     imageElementStripped.src = imageElement.src;
     imageContainer.appendChild(imageElementStripped);
-    imageContainer.setAttribute("data-state", "1");
+    imageContainer.style.display = "flex";
     document.body.style.overflow = "hidden";
     state = 1;
 }
