@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>genesis :: test - images.js</title>
+        <script defer src="../scripts/images.js"></script>
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+                background: #101010;
+                color: #F0F0F0;
+            }
+        </style>
+    </head>
+    <body>
+        <figure><img src="https://images.pexels.com/photos/20072361/pexels-photo-20072361/free-photo-of-landscape-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="640" height="427"><figcaption><span>This image won't be affected.</span></figcaption></figure>
+        <figure><img src="https://images.pexels.com/photos/11517781/pexels-photo-11517781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="640" height="428" data-clickable-image><figcaption><span>This image will be affected.</span></figcaption></figure>
+        <figure><img src="https://images.pexels.com/photos/20072361/pexels-photo-20072361/free-photo-of-landscape-photography.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="640" height="427"><figcaption><span>This image won't be affected.</span></figcaption></figure>
+        <figure><img src="https://images.pexels.com/photos/19845627/pexels-photo-19845627/free-photo-of-a-blue-and-white-abstract-painting-with-a-white-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="640" height="855" data-clickable-image><figcaption><span>This image will be affected.</span></figcaption></figure>
+        <figure><img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="640" height="960" data-clickable-image><figcaption><span>This image will be affected.</span></figcaption></figure>
+    </body>
+</html>
