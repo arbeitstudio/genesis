@@ -38,3 +38,10 @@ function hijackSitewideControl() {
             templateHideImage();
     });
 }
+
+function templateHideImage() {
+    imageContainer.setAttribute("data-state", "0");
+    imageContainer.removeChild(imageContainer.lastChild);
+    document.body.style.overflow = "auto";
+    state = 0;
+}
