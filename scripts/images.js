@@ -31,3 +31,10 @@ function insertSitewideStyle() {
     document.body.appendChild(imageContainer);
     document.head.appendChild(style);
 }
+
+function hijackSitewideControl() {
+    window.addEventListener("keydown", (event) => {
+        if (state === 1 && event.key === "Escape")
+            templateHideImage();
+    });
+}
