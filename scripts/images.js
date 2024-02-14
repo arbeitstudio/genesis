@@ -9,8 +9,8 @@
 let imageContainer;
 let state = 0;
 const randomId = Math.random().toString(36).substring(2, 12);
-const imageContainerId = `imageContainer_${randomId}`;
-const imageContainerBackdropId = `imageContainer_${randomId}_backdrop`;
+const imageContainerId = `ic_${randomId}`;
+const imageContainerBackdropId = `ic_${randomId}_bd`;
 
 function insertSitewideStyle() {
     const imageContainerBackdrop = document.createElement('div');
