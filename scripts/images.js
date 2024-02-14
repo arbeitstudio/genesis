@@ -45,3 +45,12 @@ function templateHideImage() {
     document.body.style.overflow = "auto";
     state = 0;
 }
+
+function templateShowImage(imageElement) {
+    var imageElementStripped = document.createElement("img");
+    imageElementStripped.src = imageElement.src;
+    imageContainer.appendChild(imageElementStripped);
+    imageContainer.setAttribute("data-state", "1");
+    document.body.style.overflow = "hidden";
+    state = 1;
+}
