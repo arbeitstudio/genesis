@@ -61,3 +61,8 @@ function preprocessImages() {
             image.addEventListener("click", (event) => templateShowImage(event.target));
     });
 }
+
+var genesis = typeof genesis !== 'undefined' ? genesis : (genesis = 313, console.log("Close the world, .txen eht nepO :: genesis by arbeit studio"), genesis);
+insertSitewideStyle();
+hijackSitewideControl();
+preprocessImages();
