@@ -54,3 +54,10 @@ function templateShowImage(imageElement) {
     document.body.style.overflow = "hidden";
     state = 1;
 }
+
+function preprocessImages() {
+    Array.from(document.getElementsByTagName("img")).forEach(image => {
+        if (image.hasAttribute("data-clickable-image"))
+            image.addEventListener("click", (event) => templateShowImage(event.target));
+    });
+}
