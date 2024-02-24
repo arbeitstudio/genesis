@@ -26,3 +26,15 @@ function injectSitewideStyle() {
 	style.position = 'relative';
 	style.zIndex = '0';
 }
+
+function positionRelative(container, image) {
+	const rect = container.getBoundingClientRect();
+	image.style.top = `${rect.bottom}px`;
+
+    // shit's crazy bad, can't think of another solution
+    if (image.complete)
+        this.style.left = `${rect.left + rect.width / 2 - this.width / 2}px`;
+    else {
+        setTimeout(() => { positionRelative(container, image) }, 100);
+    }
+}
