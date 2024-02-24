@@ -20,3 +20,9 @@ function readDocument() {
 	}
 	window.addEventListener('resize', updater);
 }
+
+function injectSitewideStyle() {
+	const style = body.style;
+	style.position = 'relative';
+	style.zIndex = '0';
+}
