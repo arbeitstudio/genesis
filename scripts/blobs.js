@@ -47,3 +47,9 @@ function positionAbsolute(container, image) {
         setTimeout(() => { positionAbsolute(container, image) }, 100);
     }
 }
+
+function updater() {
+	blobContainerTuples.forEach((tuple) => {
+		blobPositionAlgorithm(tuple.container, tuple.img);
+	});
+}
