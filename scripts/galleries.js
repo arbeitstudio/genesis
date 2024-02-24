@@ -16,6 +16,10 @@ function processGallery(gallery) {
 	const equalizeWidth = gallery.hasAttribute('data-equalize-width');
     const equalizeHeight = gallery.hasAttribute('data-equalize-height');
 	const keepSameHeight = cards.length > 0 && gallery.hasAttribute('data-keep-same-height');
+
+	if (equalizeWidth) {
+		cards.forEach((card) => (card.style.width = gallery.dataset.equalizeWidth));
+	} else if (equalizeHeight) {
         });
     }
 }
