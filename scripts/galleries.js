@@ -6,7 +6,7 @@
  *
  *      genesis/scripts/galleries.js
  */
-const galleryClasses = ["shiny"];
+const galleryClasses = ['shiny', 'cmv'];
 
 function processGallery(gallery) {
     if (gallery.hasAttribute("data-equalize-width")) {
