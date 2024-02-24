@@ -1,0 +1,52 @@
+$material: linear-gradient(180deg, #101010 0%, rgba(16, 16, 16, 0.75) 50%, #101010 100%);
+
+.gallery-cmv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    gap: 1rem;
+}
+
+.card-modern-vcard {
+    max-width: 360px;
+    min-width: 240px;
+    border: 1px solid #fff;
+    border-radius: 1.5rem;
+    background: $material;
+
+    img {
+        border-radius: 1.5rem 1.5rem 0 0;
+        min-height: 135px; // 16k:9, 16k = 240, 9k = 135
+        max-height: 202px; // 16k = 360, 9k = 202.5
+        width: 100%;
+    }
+
+    .cmv-text {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        background: transparent;
+
+        h1, h2, p { margin: 0; }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            color: #FCFBF8;
+            text-align: justify;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-style: italic;
+            font-size: 1rem;
+            color: #aaa;
+        }
+    }
+}
