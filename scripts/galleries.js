@@ -22,6 +22,11 @@ function processGallery(gallery) {
 	} else if (equalizeHeight) {
         cards.forEach((card) => (card.style.height = gallery.dataset.equalizeHeight));
     } else if (keepSameHeight) {
+		const longestHeight = Math.max(...cards.map((card) => card.offsetHeight));
+        console.log(...cards.map((card) => card.offsetHeight));
+		cards.forEach(
+			(card) => {
+                card.style.height = card.offsetHeight < longestHeight ? `${longestHeight}px` : card.style.height;
         });
     }
 }
