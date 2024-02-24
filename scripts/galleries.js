@@ -9,15 +9,9 @@
 const galleryClasses = ['shiny', 'cmv'];
 
 function processGallery(gallery) {
-    if (gallery.hasAttribute("data-equalize-width")) {
-        let cards = Array.from(gallery.querySelectorAll("*")).filter(element => {
-            return Array.from(element.classList).some(className => {
-                return className.startsWith("card-");
-            });
-        });
-        
-        cards.forEach(card => {
-            card.style.width = gallery.attributes["data-equalize-width"].value;
+	const cards = Array.from(document.querySelectorAll('*')).filter((el) =>
+		Array.from(el.classList).some((className) => className.startsWith('card-'))
+	);
         });
     }
 }
