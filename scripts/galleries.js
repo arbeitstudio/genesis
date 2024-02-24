@@ -32,15 +32,8 @@ function processGallery(gallery) {
 }
 
 function findGalleries() {
-    const galleries = [];
-    galleryClasses.forEach(galleryClass => {
-        [...document.getElementsByClassName("gallery-" + galleryClass)].forEach(gallery => {
-            galleries.push(gallery);
-        })
-    });
-    galleries.forEach(gallery => {
-        processGallery(gallery);
-    });
+	const galleries = document.querySelectorAll(`.gallery-${galleryClasses.join(',.gallery-')}`);
+	galleries.forEach(processGallery);
 }
 
 findGalleries();
