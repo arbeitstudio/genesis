@@ -27,8 +27,8 @@ function processGallery(gallery) {
 		cards.forEach(
 			(card) => {
                 card.style.height = card.offsetHeight < longestHeight ? `${longestHeight}px` : card.style.height;
-        });
-    }
+            });
+	}
 }
 
 function findGalleries() {
@@ -37,4 +37,7 @@ function findGalleries() {
 }
 
 findGalleries();
-var genesis = typeof genesis !== 'undefined' ? genesis : (genesis = 313, console.log("Close the world, .txen eht nepO :: genesis by arbeit studio"), genesis);
+var genesis =
+	typeof genesis !== 'undefined'
+		? genesis
+		: ((genesis = 313), console.log('Close the world, .txen eht nepO :: genesis by arbeit studio'), genesis);
