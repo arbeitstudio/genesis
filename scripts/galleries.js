@@ -12,6 +12,10 @@ function processGallery(gallery) {
 	const cards = Array.from(document.querySelectorAll('*')).filter((el) =>
 		Array.from(el.classList).some((className) => className.startsWith('card-'))
 	);
+
+	const equalizeWidth = gallery.hasAttribute('data-equalize-width');
+    const equalizeHeight = gallery.hasAttribute('data-equalize-height');
+	const keepSameHeight = cards.length > 0 && gallery.hasAttribute('data-keep-same-height');
         });
     }
 }
