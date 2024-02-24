@@ -9,3 +9,14 @@
 let blobPositionAlgorithm;
 let blobContainerTuples = [];
 const body = document.body;
+
+function readDocument() {
+	// default position algorithm is absolute
+	if (body.getAttribute('data-blob-algorithm') == 'relative') {
+		blobPositionAlgorithm = positionRelative;
+		window.addEventListener('scroll', updater);
+	} else {
+		blobPositionAlgorithm = positionAbsolute;
+	}
+	window.addEventListener('resize', updater);
+}
