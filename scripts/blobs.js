@@ -38,3 +38,12 @@ function positionRelative(container, image) {
         setTimeout(() => { positionRelative(container, image) }, 100);
     }
 }
+
+function positionAbsolute(container, image) {
+	image.style.top = `${container.offsetTop}px`;
+	if (image.complete)
+        image.style.left = `${container.offsetLeft + container.offsetWidth / 2 - image.width / 2}px`;
+    else {
+        setTimeout(() => { positionAbsolute(container, image) }, 100);
+    }
+}
