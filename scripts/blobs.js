@@ -67,3 +67,11 @@ function preprocessContainers() {
 
 	updater();
 }
+
+readDocument();
+injectSitewideStyle();
+preprocessContainers();
+var genesis =
+	typeof genesis !== 'undefined'
+		? genesis
+		: ((genesis = 313), console.log('Close the world, .txen eht nepO :: genesis by arbeit studio'), genesis);
