@@ -53,3 +53,17 @@ function updater() {
 		blobPositionAlgorithm(tuple.container, tuple.img);
 	});
 }
+
+function preprocessContainers() {
+	Array.from(document.querySelectorAll('[data-blob]')).forEach((container) => {
+		const blob = container.getAttribute('data-blob');
+		const img = document.createElement('img');
+		img.src = `assets/blobs/${blob}`;
+		img.style.position = 'absolute';
+		img.style.zIndex = '-1';
+		body.appendChild(img);
+		blobContainerTuples.push({ container, img });
+	});
+
+	updater();
+}
