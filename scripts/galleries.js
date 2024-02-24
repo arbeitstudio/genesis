@@ -20,6 +20,8 @@ function processGallery(gallery) {
 	if (equalizeWidth) {
 		cards.forEach((card) => (card.style.width = gallery.dataset.equalizeWidth));
 	} else if (equalizeHeight) {
+        cards.forEach((card) => (card.style.height = gallery.dataset.equalizeHeight));
+    } else if (keepSameHeight) {
         });
     }
 }
