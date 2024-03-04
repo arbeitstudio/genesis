@@ -60,6 +60,7 @@ function preprocessContainers() {
 		const img = document.createElement('img');
 		img.src = `assets/blobs/${blob}`;
 		img.style.position = 'absolute';
+		img.style.maxWidth = '100%'; // to prevent x-overflow
 		img.style.zIndex = '-1';
 		body.appendChild(img);
 		blobContainerTuples.push({ container, img });
